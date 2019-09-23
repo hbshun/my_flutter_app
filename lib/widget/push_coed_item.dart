@@ -3,11 +3,6 @@ import 'package:hgbh_app/common/model/CommitFile.dart';
 import 'package:hgbh_app/common/style/gsy_style.dart';
 import 'package:hgbh_app/widget/gsy_card_item.dart';
 
-/**
- * 推送修改代码Item
- * Created by guoshuyu
- * Date: 2018-07-27
- */
 
 class PushCodeItem extends StatelessWidget {
   final PushCodeItemViewModel pushCodeItemViewModel;

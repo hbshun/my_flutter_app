@@ -18,11 +18,6 @@ import 'package:hgbh_app/widget/gsy_tabbar_widget.dart';
 import 'package:hgbh_app/widget/gsy_title_bar.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-/**
- * 仓库详情
- * Created by guoshuyu
- * Date: 2018-07-18
- */
 class RepositoryDetailPage extends StatefulWidget {
   ///用户名
   final String userName;

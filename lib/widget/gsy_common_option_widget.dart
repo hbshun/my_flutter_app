@@ -3,10 +3,6 @@ import 'package:hgbh_app/common/style/gsy_style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:share/share.dart';
 
-/**
- * Created by guoshuyu
- * Date: 2018-07-26
- */
 class GSYCommonOptionWidget extends StatelessWidget {
   final List<GSYOptionModel> otherList;
 

@@ -4,11 +4,6 @@ import 'package:hgbh_app/common/model/UserOrg.dart';
 import 'package:hgbh_app/common/style/gsy_style.dart';
 import 'package:hgbh_app/widget/gsy_card_item.dart';
 
-/**
- * 用户item
- * Created by guoshuyu
- * Date: 2018-07-23
- */
 class UserItem extends StatelessWidget {
   final UserItemViewModel userItemViewModel;
 

@@ -6,11 +6,6 @@ import 'package:hgbh_app/common/ab/sql_provider.dart';
 import 'package:hgbh_app/common/model/User.dart';
 import 'package:sqflite/sqflite.dart';
 
-/**
- * 仓库订阅用户表
- * Created by guoshuyu
- * Date: 2018-08-07
- */
 
 class RepositoryWatcherDbProvider extends BaseDbProvider {
   final String name = 'RepositoryWatcher';

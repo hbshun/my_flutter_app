@@ -2,11 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 
-/**
- * 语言Redux
- * Created by guoshuyu
- * Date: 2018-07-16
- */
 
 final LocaleReducer = combineReducers<Locale>([
   TypedReducer<Locale, RefreshLocaleAction>(_refresh),

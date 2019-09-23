@@ -19,11 +19,6 @@ import 'package:hgbh_app/page/repository_detail_page.dart';
 import 'package:hgbh_app/page/search_page.dart';
 import 'package:hgbh_app/page/user_profile_page.dart';
 
-/**
- * 导航栏
- * Created by guoshuyu
- * Date: 2018-07-16
- */
 class NavigatorUtils {
   ///替换
   static pushReplacementNamed(BuildContext context, String routeName) {

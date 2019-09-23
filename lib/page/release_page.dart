@@ -15,11 +15,6 @@ import 'package:hgbh_app/widget/gsy_title_bar.dart';
 import 'package:hgbh_app/widget/release_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-/**
- * 版本页
- * Created by guoshuyu
- * Date: 2018-07-30
- */
 
 class ReleasePage extends StatefulWidget {
   final String userName;

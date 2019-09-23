@@ -7,10 +7,6 @@ import 'dart:ui' as ui show Codec;
 
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
-/**
- * Created by guoshuyu
- * on 2019/4/13.
- */
 class NetworkCacheImage extends ImageProvider<NetworkCacheImage> {
   /// Creates an object that fetches the image at the given URL.
   ///

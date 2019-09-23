@@ -15,11 +15,6 @@ import 'package:hgbh_app/widget/gsy_select_item_widget.dart';
 import 'package:hgbh_app/widget/repos_item.dart';
 import 'package:hgbh_app/widget/user_item.dart';
 
-/**
- * 搜索页面
- * Created by guoshuyu
- * on 2018/7/24.
- */
 class SearchPage extends StatefulWidget {
   @override
   _SearchPageState createState() => _SearchPageState();

@@ -7,11 +7,6 @@ import 'package:hgbh_app/common/model/Repository.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:hgbh_app/common/utils/code_utils.dart';
 
-/**
- * 本地已读历史表
- * Created by guoshuyu
- * Date: 2018-08-07
- */
 
 class ReadHistoryDbProvider extends BaseDbProvider {
   final String name = 'ReadHistory';

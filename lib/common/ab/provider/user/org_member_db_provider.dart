@@ -1,12 +1,5 @@
 import 'package:hgbh_app/common/ab/sql_provider.dart';
 
-/**
- * 用户关注表
- *
- * Created by guoshuyu
- * Date: 2018-08-07
- */
-
 class OrgMemberDbProvider extends BaseDbProvider {
   final String name = 'OrgMember';
 

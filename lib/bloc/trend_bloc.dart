@@ -2,10 +2,6 @@ import 'package:hgbh_app/common/dao/repos_dao.dart';
 import 'package:hgbh_app/common/model/TrendingRepoModel.dart';
 import 'package:rxdart/rxdart.dart';
 
-/**
- * Created by guoshuyu
- * on 2019/3/23.
- */
 class TrendBloc {
   bool _requested = false;
 

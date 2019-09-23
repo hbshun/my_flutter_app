@@ -16,11 +16,6 @@ import 'package:hgbh_app/widget/gsy_flex_button.dart';
 import 'package:package_info/package_info.dart';
 import 'package:redux/redux.dart';
 
-/**
- * 主页drawer
- * Created by guoshuyu
- * Date: 2018-07-18
- */
 class HomeDrawer extends StatelessWidget {
   showAboutDialog(BuildContext context, String versionName) {
     versionName ??= "Null";

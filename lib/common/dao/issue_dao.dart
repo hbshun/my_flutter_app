@@ -10,11 +10,6 @@ import 'package:hgbh_app/common/model/Issue.dart';
 import 'package:hgbh_app/common/net/address.dart';
 import 'package:hgbh_app/common/net/api.dart';
 
-/**
- * Issue相关
- * Created by guoshuyu
- * Date: 2018-07-19
- */
 
 class IssueDao {
   /**

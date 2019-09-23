@@ -1,10 +1,5 @@
 import 'package:hgbh_app/common/style/gsy_style.dart';
 
-/**
- * Created by guoshuyu
- * on 2018/7/27.
- */
-
 class HtmlUtils {
   static generateCode2HTml(String mdData, {String backgroundColor = GSYColors.miWhiteString, String lang = 'java', userBR = true}) {
     String currentData = (mdData != null && mdData.indexOf("<code>") == -1)

@@ -10,11 +10,6 @@ import 'package:hgbh_app/widget/pull/nested/gsy_nested_pull_load_widget.dart';
 import 'package:hgbh_app/widget/state/base_person_state.dart';
 import 'package:redux/redux.dart';
 
-/**
- * 主页我的tab页
- * Created by guoshuyu
- * Date: 2018-07-16
- */
 class MyPage extends StatefulWidget {
   @override
   _MyPageState createState() => _MyPageState();

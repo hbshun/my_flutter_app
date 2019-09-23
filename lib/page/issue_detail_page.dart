@@ -15,11 +15,6 @@ import 'package:hgbh_app/widget/gsy_title_bar.dart';
 import 'package:hgbh_app/widget/issue_header_item.dart';
 import 'package:hgbh_app/widget/issue_item.dart';
 
-/**
- * Issue 详情页面
- * Created by guoshuyu
- * on 2018/7/21.
- */
 
 class IssueDetailPage extends StatefulWidget {
   final String userName;

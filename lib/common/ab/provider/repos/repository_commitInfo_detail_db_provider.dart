@@ -1,10 +1,5 @@
 import 'package:hgbh_app/common/ab/sql_provider.dart';
 
-/**
- * 仓库提交信息详情表
- * Created by guoshuyu
- * Date: 2018-08-07
- */
 
 class RepositoryCommitInfoDetailDbProvider extends BaseDbProvider {
   final String name = 'RepositoryCommitInfoDetail';

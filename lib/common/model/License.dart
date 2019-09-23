@@ -1,13 +1,5 @@
-/**
- * Created by guoshuyu
- * Date: 2018-07-31
- */
-import 'package:json_annotation/json_annotation.dart';
 
-/**
- * Created by guoshuyu
- * Date: 2018-07-31
- */
+import 'package:json_annotation/json_annotation.dart';
 
 part 'License.g.dart';
 

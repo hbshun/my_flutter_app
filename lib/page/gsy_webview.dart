@@ -3,11 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hgbh_app/widget/gsy_common_option_widget.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-/**
- * webview版本
- * Created by guoshuyu
- * on 2018/7/27.
- */
 class GSYWebView extends StatelessWidget {
   final String url;
   final String title;

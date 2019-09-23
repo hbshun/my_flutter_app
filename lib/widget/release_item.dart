@@ -4,11 +4,6 @@ import 'package:hgbh_app/common/style/gsy_style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/widget/gsy_card_item.dart';
 
-/**
- * 版本TagItem
- * Created by guoshuyu
- * Date: 2018-07-30
- */
 
 class ReleaseItem extends StatelessWidget {
   final ReleaseItemViewModel releaseItemViewModel;

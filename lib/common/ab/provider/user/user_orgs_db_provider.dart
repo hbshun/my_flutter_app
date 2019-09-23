@@ -6,11 +6,6 @@ import 'package:hgbh_app/common/ab/sql_provider.dart';
 import 'package:hgbh_app/common/model/UserOrg.dart';
 import 'package:sqflite/sqflite.dart';
 
-/**
- * 用户组织表
- * Created by guoshuyu
- * Date: 2018-08-07
- */
 
 class UserOrgsDbProvider extends BaseDbProvider {
   final String name = 'UserOrgs';

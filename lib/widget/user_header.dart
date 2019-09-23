@@ -11,11 +11,6 @@ import 'package:hgbh_app/widget/gsy_card_item.dart';
 import 'package:hgbh_app/widget/gsy_icon_text.dart';
 import 'package:hgbh_app/widget/gsy_user_icon_widget.dart';
 
-/**
- * 用户详情头部
- * Created by guoshuyu
- * Date: 2018-07-17
- */
 class UserHeaderItem extends StatelessWidget {
   final User userInfo;
 

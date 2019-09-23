@@ -9,11 +9,6 @@ import 'package:hgbh_app/widget/gsy_card_item.dart';
 import 'package:hgbh_app/widget/gsy_user_icon_widget.dart';
 import 'package:hgbh_app/common/model/Notification.dart' as Model;
 
-/**
- * 事件Item
- * Created by guoshuyu
- * Date: 2018-07-16
- */
 class EventItem extends StatelessWidget {
   final EventViewModel eventViewModel;
 

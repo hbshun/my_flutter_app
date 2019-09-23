@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/style/gsy_style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 
-/**
- * 搜索输入框
- * Created by guoshuyu
- * Date: 2018-07-20
- */
 class GSYSearchInputWidget extends StatelessWidget {
   final ValueChanged<String> onChanged;
 

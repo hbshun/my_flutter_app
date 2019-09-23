@@ -18,11 +18,6 @@ import 'package:hgbh_app/widget/gsy_select_item_widget.dart';
 import 'package:hgbh_app/widget/repos_header_item.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-/**
- * 仓库详情动态信息页面
- * Created by guoshuyu
- * Date: 2018-07-18
- */
 class ReposDetailInfoPage extends StatefulWidget {
   final String userName;
 

@@ -7,11 +7,6 @@ import 'package:hgbh_app/widget/pull/gsy_pull_load_widget.dart';
 import 'package:hgbh_app/widget/repos_item.dart';
 import 'package:hgbh_app/widget/user_item.dart';
 
-/**
- * 通用list
- * Created by guoshuyu
- * on 2018/7/22.
- */
 
 class CommonListPage extends StatefulWidget {
   final String userName;

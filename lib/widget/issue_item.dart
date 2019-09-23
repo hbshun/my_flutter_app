@@ -8,11 +8,6 @@ import 'package:hgbh_app/widget/gsy_icon_text.dart';
 import 'package:hgbh_app/widget/gsy_markdown_widget.dart';
 import 'package:hgbh_app/widget/gsy_user_icon_widget.dart';
 
-/**
- * Issue相关item
- * Created by guoshuyu
- * Date: 2018-07-19
- */
 class IssueItem extends StatelessWidget {
   final IssueItemViewModel issueItemViewModel;
 

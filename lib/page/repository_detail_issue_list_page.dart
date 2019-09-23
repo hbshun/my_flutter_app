@@ -12,11 +12,6 @@ import 'package:hgbh_app/widget/gsy_search_input_widget.dart';
 import 'package:hgbh_app/widget/issue_item.dart';
 import 'package:hgbh_app/widget/gsy_select_item_widget.dart';
 
-/**
- * 仓库详情issue列表
- * Created by guoshuyu
- * Date: 2018-07-19
- */
 class RepositoryDetailIssuePage extends StatefulWidget {
   final String userName;
 

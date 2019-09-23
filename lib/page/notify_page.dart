@@ -11,11 +11,6 @@ import 'package:hgbh_app/widget/gsy_title_bar.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:hgbh_app/common/model/Notification.dart' as Model;
 
-/**
- * 通知消息
- * Created by guoshuyu
- * Date: 2018-07-24
- */
 
 class NotifyPage extends StatefulWidget {
   NotifyPage();

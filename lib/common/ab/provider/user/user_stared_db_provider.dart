@@ -6,11 +6,6 @@ import 'package:hgbh_app/common/ab/sql_provider.dart';
 import 'package:hgbh_app/common/model/Repository.dart';
 import 'package:sqflite/sqflite.dart';
 
-/**
- * 用户收藏表
- * Created by guoshuyu
- * Date: 2018-08-07
- */
 
 class UserStaredDbProvider extends BaseDbProvider {
   final String name = 'UserStared';

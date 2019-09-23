@@ -9,11 +9,6 @@ import 'package:hgbh_app/page/repository_detail_page.dart';
 import 'package:hgbh_app/widget/gsy_markdown_widget.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-/**
- * Readme
- * Created by guoshuyu
- * Date: 2018-07-18
- */
 
 class RepositoryDetailReadmePage extends StatefulWidget {
   final String userName;

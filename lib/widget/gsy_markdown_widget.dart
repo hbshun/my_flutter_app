@@ -4,11 +4,6 @@ import 'package:hgbh_app/common/style/gsy_style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/widget/syntax_high_lighter.dart';
 
-/**
- * 代码详情
- * Created by guoshuyu
- * Date: 2018-07-24
- */
 
 class GSYMarkdownWidget extends StatelessWidget {
   static const int DARK_WHITE = 0;

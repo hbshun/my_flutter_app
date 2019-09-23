@@ -7,12 +7,6 @@ import 'package:hgbh_app/common/ab/provider/repos/repository_detail_db_provider.
 import 'package:hgbh_app/common/model/Issue.dart';
 import 'package:sqflite/sqflite.dart';
 
-/**
- * issue详情表
- * Created by guoshuyu
- * Date: 2018-08-07
- */
-
 class IssueDetailDbProvider extends BaseDbProvider {
   final String name = 'IssueDetail';
   final String columnId = "_id";

@@ -10,11 +10,6 @@ import 'package:hgbh_app/widget/repos_item.dart';
 import 'package:hgbh_app/widget/user_item.dart';
 import 'package:provider/provider.dart';
 
-/**
- * 荣耀list
- * Created by guoshuyu
- * on 2018/7/22.
- */
 class HonorListPage extends StatefulWidget {
 
   final List list;

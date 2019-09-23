@@ -2,11 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:hgbh_app/common/config/config.dart';
 import 'package:hgbh_app/common/local/local_storage.dart';
 
-/**
- * Token拦截器
- * Created by guoshuyu
- * on 2019/3/23.
- */
 class TokenInterceptors extends InterceptorsWrapper {
 
   String _token;

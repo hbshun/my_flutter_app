@@ -10,11 +10,6 @@ import 'package:hgbh_app/widget/gsy_common_option_widget.dart';
 import 'package:hgbh_app/widget/gsy_title_bar.dart';
 import 'package:photo_view/photo_view.dart';
 
-/**
- * 图片预览
- * Created by guoshuyu
- * Date: 2018-08-09
- */
 
 class PhotoViewPage extends StatelessWidget {
   final String url;

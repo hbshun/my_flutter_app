@@ -4,11 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/config/config.dart';
 import 'package:hgbh_app/widget/pull/gsy_pull_load_widget.dart';
 
-/**
- * 上下拉刷新列表的通用State
- * Created by guoshuyu
- * Date: 2018-07-20
- */
 mixin GSYListState<T extends StatefulWidget> on State<T>, AutomaticKeepAliveClientMixin<T> {
   bool isShow = false;
 

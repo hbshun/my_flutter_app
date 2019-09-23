@@ -6,11 +6,6 @@ import 'package:hgbh_app/common/redux/theme_redux.dart';
 import 'package:hgbh_app/common/redux/locale_redux.dart';
 import 'package:redux/redux.dart';
 
-/**
- * Redux全局State
- * Created by guoshuyu
- * Date: 2018-07-16
- */
 
 ///全局Redux store 的对象，保存State数据
 class GSYState {

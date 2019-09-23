@@ -5,12 +5,6 @@ import 'package:hgbh_app/common/model/User.dart';
 import 'package:meta/meta.dart';
 import 'package:sqflite/sqflite.dart';
 
-/**
- * Created by guoshuyu
- * Date: 2018-08-06
- */
-
-
 ///数据库管理
 class DemoSqlManager {
   static final _VERSION = 1;

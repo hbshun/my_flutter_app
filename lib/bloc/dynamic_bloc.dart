@@ -2,10 +2,6 @@ import 'package:hgbh_app/common/config/config.dart';
 import 'package:hgbh_app/common/dao/event_dao.dart';
 import 'package:hgbh_app/widget/pull/gsy_pull_new_load_widget.dart';
 
-/**
- * Created by guoshuyu
- * on 2019/3/23.
- */
 class DynamicBloc {
 
   final GSYPullLoadWidgetControl pullLoadWidgetControl = new GSYPullLoadWidgetControl();

@@ -6,11 +6,6 @@ import 'package:hgbh_app/common/redux/middleware/epic_store.dart';
 import 'package:redux/redux.dart';
 import 'package:rxdart/rxdart.dart';
 
-/**
- * 用户相关Redux
- * Created by guoshuyu
- * Date: 2018-07-16
- */
 
 /// redux 的 combineReducers, 通过 TypedReducer 将 UpdateUserAction 与 reducers 关联起来
 final UserReducer = combineReducers<User>([

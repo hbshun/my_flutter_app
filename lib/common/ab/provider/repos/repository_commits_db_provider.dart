@@ -6,11 +6,6 @@ import 'package:hgbh_app/common/ab/sql_provider.dart';
 import 'package:hgbh_app/common/model/RepoCommit.dart';
 import 'package:sqflite/sqflite.dart';
 
-/**
- * 仓库提交信息表
- * Created by guoshuyu
- * Date: 2018-08-07
- */
 
 class RepositoryCommitsDbProvider extends BaseDbProvider {
   final String name = 'RepositoryCommits';

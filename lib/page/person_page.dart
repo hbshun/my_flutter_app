@@ -13,11 +13,6 @@ import 'package:hgbh_app/widget/state/base_person_state.dart';
 import 'package:hgbh_app/widget/gsy_common_option_widget.dart';
 import 'package:hgbh_app/widget/gsy_title_bar.dart';
 
-/**
- * 个人详情
- * Created by guoshuyu
- * Date: 2018-07-18
- */
 class PersonPage extends StatefulWidget {
   static final String sName = "person";
 

@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/style/gsy_style.dart';
 
-/**
- * Card Widget
- * Created by guoshuyu
- * Date: 2018-07-16
- */
 class GSYCardItem extends StatelessWidget {
   final Widget child;
   final EdgeInsets margin;

@@ -13,11 +13,6 @@ import 'package:hgbh_app/common/utils/navigator_utils.dart';
 import 'package:hgbh_app/widget/gsy_flex_button.dart';
 import 'package:hgbh_app/widget/gsy_input_widget.dart';
 
-/**
- * 登录页
- * Created by guoshuyu
- * Date: 2018-07-16
- */
 class LoginPage extends StatefulWidget {
   static final String sName = "login";
 

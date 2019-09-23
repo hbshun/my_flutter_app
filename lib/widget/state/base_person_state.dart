@@ -17,11 +17,6 @@ import 'package:hgbh_app/widget/user_header.dart';
 import 'package:hgbh_app/widget/user_item.dart';
 import 'package:provider/provider.dart';
 
-/**
- * Created by guoshuyu
- * Date: 2018-08-30
- */
-
 abstract class BasePersonState<T extends StatefulWidget> extends State<T>
     with
         AutomaticKeepAliveClientMixin<T>,

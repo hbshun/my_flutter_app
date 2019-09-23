@@ -6,11 +6,6 @@ import 'package:hgbh_app/common/ab/sql_provider.dart';
 import 'package:hgbh_app/common/model/Event.dart';
 import 'package:sqflite/sqflite.dart';
 
-/**
- * 仓库活跃事件表
- * Created by guoshuyu
- * Date: 2018-08-07
- */
 
 class RepositoryEventDbProvider extends BaseDbProvider {
   final String name = 'RepositoryEvent';

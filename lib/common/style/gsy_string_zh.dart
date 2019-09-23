@@ -1,15 +1,11 @@
 import 'package:hgbh_app/common/style/gsy_string_base.dart';
 
-/**
- * Created by guoshuyu
- * Date: 2018-08-15
- */
 class GSYStringZh extends GSYStringBase {
   @override
   String welcomeMessage = "Welcome To Flutter";
 
   @override
-  String app_name = "GSYGithubAppFlutter";
+  String app_name = "Huanguangbaihuo";
 
   @override
   String app_ok = "确定";

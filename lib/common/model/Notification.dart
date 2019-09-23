@@ -2,11 +2,6 @@ import 'package:hgbh_app/common/model/NotificationSubject.dart';
 import 'package:hgbh_app/common/model/Repository.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-/**
- * Created by guoshuyu
- * Date: 2018-07-31
- */
-
 part 'Notification.g.dart';
 
 @JsonSerializable()

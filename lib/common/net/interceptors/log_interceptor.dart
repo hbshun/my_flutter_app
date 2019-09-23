@@ -1,11 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:hgbh_app/common/config/config.dart';
 
-/**
- * Log 拦截器
- * Created by guoshuyu
- * on 2019/3/23.
- */
 class LogsInterceptors extends InterceptorsWrapper {
   @override
   onRequest(RequestOptions options) {

@@ -32,11 +32,6 @@ import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:package_info/package_info.dart';
 import 'package:pub_semver/pub_semver.dart';
 
-/**
- * Created by guoshuyu
- * Date: 2018-07-16
- */
-
 class ReposDao {
   /**
    * 趋势数据
@@ -698,8 +693,7 @@ class ReposDao {
     if (Platform.isIOS) {
       return;
     }
-    var res = await getRepositoryReleaseDao("CarGuo", 'GSYGithubAppFlutter', 1,
-        needHtml: false);
+    var res = await getRepositoryReleaseDao("CarGuo", 'GSYGithubAppFlutter', 1, needHtml: false);
     if (res != null && res.result && res.data.length > 0) {
       Release release = res.data[0];
       String versionName = release.name;

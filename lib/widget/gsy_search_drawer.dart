@@ -2,12 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/style/gsy_style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 
-/**
- * 搜索drawer
- * Created by guoshuyu
- * Date: 2018-07-18
- */
-
 typedef void SearchSelectItemChanged<String>(String value);
 
 class GSYSearchDrawer extends StatefulWidget {

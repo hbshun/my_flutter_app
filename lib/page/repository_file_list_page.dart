@@ -13,11 +13,6 @@ import 'package:hgbh_app/widget/state/gsy_list_state.dart';
 import 'package:hgbh_app/widget/pull/gsy_pull_load_widget.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-/**
- * 仓库文件列表
- * Created by guoshuyu
- * on 2018/7/20.
- */
 
 class RepositoryDetailFileListPage extends StatefulWidget {
   final String userName;

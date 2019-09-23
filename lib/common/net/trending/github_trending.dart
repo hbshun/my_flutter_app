@@ -6,11 +6,6 @@ import 'package:hgbh_app/common/net/api.dart';
 import 'package:hgbh_app/common/net/code.dart';
 import 'package:hgbh_app/common/net/result_data.dart';
 
-/**
- * 趋势数据解析
- * Created with guoshuyu
- * Date: 2018-07-16
- */
 class GitHubTrending {
   fetchTrending(url) async {
     var res = await httpManager.netFetch(url, null, null, new Options(contentType: ContentType.text));

@@ -6,12 +6,6 @@ import 'package:hgbh_app/common/ab/sql_provider.dart';
 import 'package:hgbh_app/common/model/Event.dart';
 import 'package:sqflite/sqflite.dart';
 
-/**
- * 用户动态表
- * Created by guoshuyu
- * Date: 2018-08-07
- */
-
 class UserEventDbProvider extends BaseDbProvider {
   final String name = 'UserEvent';
 

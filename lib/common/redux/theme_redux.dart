@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 
-/**
- * 事件Redux
- * Created by guoshuyu
- * Date: 2018-07-16
- */
 
 ///通过 flutter_redux 的 combineReducers，实现 Reducer 方法
 final ThemeDataReducer = combineReducers<ThemeData>([

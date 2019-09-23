@@ -3,11 +3,6 @@ import 'package:hgbh_app/common/model/RepositoryPermissions.dart';
 import 'package:hgbh_app/common/model/User.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-/**
- * Created by guoshuyu
- * Date: 2018-07-31
- */
-
 part 'Repository.g.dart';
 
 @JsonSerializable()

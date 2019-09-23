@@ -24,11 +24,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:redux/redux.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-/**
- * 通用逻辑
- * Created by guoshuyu
- * Date: 2018-07-16
- */
 class CommonUtils {
   static final double MILLIS_LIMIT = 1000.0;
 

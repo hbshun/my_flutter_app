@@ -5,11 +5,6 @@ import 'package:hgbh_app/common/dao/user_dao.dart';
 import 'package:hgbh_app/common/model/User.dart';
 import 'package:sqflite/sqflite.dart';
 
-/**
- * 数据库管理
- * Created by guoshuyu
- * Date: 2018-08-03
- */
 
 class SqlManager {
   static const _VERSION = 1;

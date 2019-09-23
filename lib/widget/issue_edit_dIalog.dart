@@ -4,11 +4,6 @@ import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/widget/gsy_card_item.dart';
 import 'package:hgbh_app/widget/gsy_input_widget.dart';
 
-/**
- * issue 编辑输入框
- * Created by guoshuyu
- * on 2018/7/21.
- */
 class IssueEditDialog extends StatefulWidget {
   final String dialogTitle;
 

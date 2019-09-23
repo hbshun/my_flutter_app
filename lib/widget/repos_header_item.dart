@@ -10,11 +10,6 @@ import 'package:hgbh_app/widget/gsy_card_item.dart';
 import 'package:hgbh_app/widget/gsy_icon_text.dart';
 import 'package:hgbh_app/widget/gsy_select_item_widget.dart';
 
-/**
- * 仓库详情信息头控件
- * Created by guoshuyu
- * Date: 2018-07-18
- */
 
 class ReposHeaderItem extends StatefulWidget {
   final ReposHeaderViewModel reposHeaderViewModel;
