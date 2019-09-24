@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -18,7 +17,6 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:provider/provider.dart';
 import 'package:redux/redux.dart';
 import 'package:hgbh_app/common/net/code.dart';
-
 import 'common/event/index.dart';
 import 'common/utils/navigator_utils.dart';
 
@@ -68,7 +66,8 @@ class FlutterReduxApp extends StatelessWidget {
             theme: store.state.themeData,
             routes: {
               WelcomePage.sName: (context) {
-                store.state.platformLocale = WidgetsBinding.instance.window.locale;
+                store.state.platformLocale =
+                    WidgetsBinding.instance.window.locale;
                 return WelcomePage();
               },
               HomePage.sName: (context) {

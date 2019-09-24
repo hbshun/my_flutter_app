@@ -14,6 +14,8 @@ import 'package:hgbh_app/widget/gsy_tabbar_widget.dart';
 import 'package:hgbh_app/widget/gsy_title_bar.dart';
 import 'package:hgbh_app/widget/home_drawer.dart';
 
+import '../assets/icons.dart';
+
 class HomePage extends StatelessWidget {
   static final String sName = "home";
 
@@ -46,7 +48,7 @@ class HomePage extends StatelessWidget {
     List<Widget> tabs = [
       _renderTab(GSYICons.MAIN_DT, CommonUtils.getLocale(context).home_dynamic),
       _renderTab(GSYICons.MAIN_QS, CommonUtils.getLocale(context).home_trend),
-      _renderTab(GSYICons.MAIN_MY, CommonUtils.getLocale(context).home_my),
+      _renderTab(HGIcons.star2, CommonUtils.getLocale(context).home_my),
     ];
     ///增加返回按键监听
     return WillPopScope(
