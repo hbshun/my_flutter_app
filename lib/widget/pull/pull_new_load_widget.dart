@@ -1,20 +1,20 @@
 import 'package:flare_flutter/flare_actor.dart';
-import 'package:hgbh_app/widget/pull/gsy_refresh_sliver.dart' as IOS;
+import 'package:hgbh_app/widget/pull/refresh_sliver.dart' as IOS;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'dart:math';
 
 import 'custom_bouncing_scroll_physics.dart';
-import 'gsy_flare_mutli_pull_controller.dart';
-import 'gsy_flare_pull_controller.dart';
+import 'flare_mutli_pull_controller.dart';
+import 'flare_pull_controller.dart';
 
 const double iosRefreshHeight = 140;
 const double iosRefreshIndicatorExtent = 100;
 
 ///通用下上刷新控件
-class GSYPullLoadWidget extends StatefulWidget {
+class HGPullLoadWidget extends StatefulWidget {
   ///item渲染
   final IndexedWidgetBuilder itemBuilder;
 
@@ -25,7 +25,7 @@ class GSYPullLoadWidget extends StatefulWidget {
   final RefreshCallback onRefresh;
 
   ///控制器，比如数据和一些配置
-  final GSYPullLoadWidgetControl control;
+  final HGPullLoadWidgetControl control;
 
   final ScrollController scrollController;
 
@@ -34,17 +34,17 @@ class GSYPullLoadWidget extends StatefulWidget {
   ///刷新key
   final Key refreshKey;
 
-  GSYPullLoadWidget(
+  HGPullLoadWidget(
       this.control, this.itemBuilder, this.onRefresh, this.onLoadMore,
       {this.refreshKey, this.scrollController, this.userIos = false});
 
   @override
-  _GSYPullLoadWidgetState createState() => _GSYPullLoadWidgetState();
+  _HGPullLoadWidgetState createState() => _HGPullLoadWidgetState();
 }
 
-class _GSYPullLoadWidgetState extends State<GSYPullLoadWidget>
-    with GSYFlarePullController {
-    //with GSYFlarePullMutliController {
+class _HGPullLoadWidgetState extends State<HGPullLoadWidget>
+    with HGFlarePullController {
+    //with HGFlarePullMutliController {
 
   final GlobalKey<IOS.CupertinoSliverRefreshControlState> sliverRefreshKey = GlobalKey<IOS.CupertinoSliverRefreshControlState>();
 
@@ -258,13 +258,13 @@ class _GSYPullLoadWidgetState extends State<GSYPullLoadWidget>
           FlatButton(
             onPressed: () {},
             child: new Image(
-                image: new AssetImage(GSYICons.DEFAULT_USER_ICON),
+                image: new AssetImage(HGICons.DEFAULT_USER_ICON),
                 width: 70.0,
                 height: 70.0),
           ),
           Container(
             child: Text(CommonUtils.getLocale(context).app_empty,
-                style: GSYConstant.normalText),
+                style: HGConstant.normalText),
           ),
         ],
       ),
@@ -351,7 +351,7 @@ class _GSYPullLoadWidgetState extends State<GSYPullLoadWidget>
   }
 }
 
-class GSYPullLoadWidgetControl extends ChangeNotifier {
+class HGPullLoadWidgetControl extends ChangeNotifier {
   ///数据，对齐增减，不能替换
   List _dataList = new List();
 

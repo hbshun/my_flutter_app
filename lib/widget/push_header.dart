@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/model/PushCommit.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
-import 'package:hgbh_app/widget/gsy_icon_text.dart';
-import 'package:hgbh_app/widget/gsy_user_icon_widget.dart';
+import 'package:hgbh_app/widget/card_item.dart';
+import 'package:hgbh_app/widget/icon_text.dart';
+import 'package:hgbh_app/widget/user_icon_widget.dart';
 
 class PushHeader extends StatelessWidget {
   final PushHeaderViewModel pushHeaderViewModel;
@@ -14,11 +14,11 @@ class PushHeader extends StatelessWidget {
 
   /// 头部变化数量图标
   _getIconItem(IconData icon, String text) {
-    return new GSYIConText(
+    return new HGIConText(
       icon,
       text,
-      GSYConstant.smallSubLightText,
-      Color(GSYColors.subLightTextColor),
+      HGConstant.smallSubLightText,
+      Color(HGColors.subLightTextColor),
       15.0,
       padding: 0.0,
     );
@@ -26,7 +26,7 @@ class PushHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new GSYCardItem(
+    return new HGCardItem(
       color: Theme.of(context).primaryColor,
       child: new FlatButton(
         padding: new EdgeInsets.all(0.0),
@@ -39,7 +39,7 @@ class PushHeader extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   ///用户头像
-                  new GSYUserIconWidget(
+                  new HGUserIconWidget(
                       padding: const EdgeInsets.only(top: 0.0, right: 5.0, left: 0.0),
                       width: 40.0,
                       height: 40.0,
@@ -54,11 +54,11 @@ class PushHeader extends StatelessWidget {
                         ///变化状态
                         new Row(
                           children: <Widget>[
-                            _getIconItem(GSYICons.PUSH_ITEM_EDIT, pushHeaderViewModel.editCount),
+                            _getIconItem(HGICons.PUSH_ITEM_EDIT, pushHeaderViewModel.editCount),
                             new Container(width: 8.0),
-                            _getIconItem(GSYICons.PUSH_ITEM_ADD, pushHeaderViewModel.addCount),
+                            _getIconItem(HGICons.PUSH_ITEM_ADD, pushHeaderViewModel.addCount),
                             new Container(width: 8.0),
-                            _getIconItem(GSYICons.PUSH_ITEM_MIN, pushHeaderViewModel.deleteCount),
+                            _getIconItem(HGICons.PUSH_ITEM_MIN, pushHeaderViewModel.deleteCount),
                             new Container(width: 8.0),
                           ],
                         ),
@@ -68,7 +68,7 @@ class PushHeader extends StatelessWidget {
                         new Container(
                             child: new Text(
                               pushHeaderViewModel.pushTime,
-                              style: GSYConstant.smallTextWhite,
+                              style: HGConstant.smallTextWhite,
                               maxLines: 2,
                             ),
                             margin: new EdgeInsets.only(top: 6.0, bottom: 2.0),
@@ -78,7 +78,7 @@ class PushHeader extends StatelessWidget {
                         new Container(
                             child: new Text(
                               pushHeaderViewModel.pushDes,
-                              style: GSYConstant.smallTextWhite,
+                              style: HGConstant.smallTextWhite,
                               maxLines: 2,
                             ),
                             margin: new EdgeInsets.only(top: 6.0, bottom: 2.0),
@@ -107,7 +107,7 @@ class PushHeaderViewModel {
   String editCount = "---";
   String addCount = "---";
   String deleteCount = "---";
-  String htmlUrl = GSYConstant.app_default_share_url;
+  String htmlUrl = HGConstant.app_default_share_url;
 
   PushHeaderViewModel();
 

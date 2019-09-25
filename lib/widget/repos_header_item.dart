@@ -3,12 +3,12 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/config/config.dart';
 import 'package:hgbh_app/common/model/Repository.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
-import 'package:hgbh_app/widget/gsy_icon_text.dart';
-import 'package:hgbh_app/widget/gsy_select_item_widget.dart';
+import 'package:hgbh_app/widget/card_item.dart';
+import 'package:hgbh_app/widget/icon_text.dart';
+import 'package:hgbh_app/widget/select_item_widget.dart';
 
 
 class ReposHeaderItem extends StatefulWidget {
@@ -37,13 +37,13 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
               padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
               constraints: const BoxConstraints(minWidth: 0.0, minHeight: 0.0),
-              child: new GSYIConText(
+              child: new HGIConText(
                 icon,
                 text,
-                GSYConstant.smallSubLightText.copyWith(shadows: [
+                HGConstant.smallSubLightText.copyWith(shadows: [
                   BoxShadow(color: Colors.grey, offset: Offset(0.5, 0.5))
                 ]),
-                Color(GSYColors.subLightTextColor),
+                Color(HGColors.subLightTextColor),
                 15.0,
                 padding: 3.0,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -74,7 +74,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
           ),
           child: new Text(
             item,
-            style: GSYConstant.smallSubLightText.copyWith(shadows: [
+            style: HGConstant.smallSubLightText.copyWith(shadows: [
               BoxShadow(color: Colors.grey, offset: Offset(0.5, 0.5))
             ]),
           ),
@@ -164,7 +164,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
   Widget build(BuildContext context) {
     return new Container(
       key: layoutKey,
-      child: new GSYCardItem(
+      child: new HGCardItem(
         color: Theme.of(context).primaryColorDark,
         child: new ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(4.0)),
@@ -174,7 +174,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
               image: new DecorationImage(
                 fit: BoxFit.cover,
                 image: new NetworkImage(widget.reposHeaderViewModel.ownerPic ??
-                    GSYICons.DEFAULT_REMOTE_PIC),
+                    HGICons.DEFAULT_REMOTE_PIC),
               ),
             ),
             child: new BackdropFilter(
@@ -198,7 +198,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
                                 context, widget.reposHeaderViewModel.ownerName);
                           },
                           child: new Text(widget.reposHeaderViewModel.ownerName,
-                              style: GSYConstant.normalTextActionWhiteBold
+                              style: HGConstant.normalTextActionWhiteBold
                                   .copyWith(shadows: [
                                 BoxShadow(
                                     color: Colors.black,
@@ -206,7 +206,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
                               ])),
                         ),
                         new Text(" / ",
-                            style: GSYConstant.normalTextMitWhiteBold.copyWith(
+                            style: HGConstant.normalTextMitWhiteBold.copyWith(
                                 shadows: [
                                   BoxShadow(
                                       color: Colors.black,
@@ -215,7 +215,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
 
                         ///仓库名
                         new Text(widget.reposHeaderViewModel.repositoryName,
-                            style: GSYConstant.normalTextMitWhiteBold.copyWith(
+                            style: HGConstant.normalTextMitWhiteBold.copyWith(
                                 shadows: [
                                   BoxShadow(
                                       color: Colors.black,
@@ -228,7 +228,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
                         ///仓库语言
                         new Text(
                             widget.reposHeaderViewModel.repositoryType ?? "--",
-                            style: GSYConstant.smallSubLightText.copyWith(
+                            style: HGConstant.smallSubLightText.copyWith(
                                 shadows: [
                                   BoxShadow(
                                       color: Colors.grey,
@@ -239,7 +239,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
                         ///仓库大小
                         new Text(
                             widget.reposHeaderViewModel.repositorySize ?? "--",
-                            style: GSYConstant.smallSubLightText.copyWith(
+                            style: HGConstant.smallSubLightText.copyWith(
                                 shadows: [
                                   BoxShadow(
                                       color: Colors.grey,
@@ -249,7 +249,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
 
                         ///仓库协议
                         new Text(widget.reposHeaderViewModel.license ?? "--",
-                            style: GSYConstant.smallSubLightText.copyWith(
+                            style: HGConstant.smallSubLightText.copyWith(
                                 shadows: [
                                   BoxShadow(
                                       color: Colors.grey,
@@ -262,7 +262,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
                     new Container(
                         child: new Text(
                           widget.reposHeaderViewModel.repositoryDes ?? "---",
-                          style: GSYConstant.smallSubLightText.copyWith(
+                          style: HGConstant.smallSubLightText.copyWith(
                               shadows: [
                                 BoxShadow(
                                     color: Colors.grey,
@@ -295,13 +295,13 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
                             const BoxConstraints(minWidth: 0.0, minHeight: 0.0),
                         child: new Text(_getInfoText(context),
                             style: widget.reposHeaderViewModel.repositoryIsFork
-                                ? GSYConstant.smallActionLightText.copyWith(
+                                ? HGConstant.smallActionLightText.copyWith(
                                     shadows: [
                                         BoxShadow(
                                             color: Colors.grey,
                                             offset: Offset(0.5, 0.5))
                                       ])
-                                : GSYConstant.smallSubLightText.copyWith(
+                                : HGConstant.smallSubLightText.copyWith(
                                     shadows: [
                                         BoxShadow(
                                             color: Colors.grey,
@@ -310,7 +310,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
                       ),
                     ),
                     new Divider(
-                      color: Color(GSYColors.subTextColor),
+                      color: Color(HGColors.subTextColor),
                     ),
                     new Padding(
                         padding: new EdgeInsets.all(0.0),
@@ -322,7 +322,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
                           children: <Widget>[
                             ///star状态
                             _getBottomItem(
-                              GSYICons.REPOS_ITEM_STAR,
+                              HGICons.REPOS_ITEM_STAR,
                               widget.reposHeaderViewModel.repositoryStar,
                               () {
                                 NavigatorUtils.gotoCommonList(
@@ -341,7 +341,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
                               width: 0.3,
                               height: 25.0,
                               decoration: BoxDecoration(
-                                  color: Color(GSYColors.subLightTextColor),
+                                  color: Color(HGColors.subLightTextColor),
                                   boxShadow: [
                                     BoxShadow(
                                         color: Colors.grey,
@@ -351,7 +351,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
 
                             ///fork状态
                             _getBottomItem(
-                              GSYICons.REPOS_ITEM_FORK,
+                              HGICons.REPOS_ITEM_FORK,
                               widget.reposHeaderViewModel.repositoryFork,
                               () {
                                 NavigatorUtils.gotoCommonList(
@@ -370,7 +370,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
                               width: 0.3,
                               height: 25.0,
                               decoration: BoxDecoration(
-                                  color: Color(GSYColors.subLightTextColor),
+                                  color: Color(HGColors.subLightTextColor),
                                   boxShadow: [
                                     BoxShadow(
                                         color: Colors.grey,
@@ -380,7 +380,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
 
                             ///订阅状态
                             _getBottomItem(
-                              GSYICons.REPOS_ITEM_WATCH,
+                              HGICons.REPOS_ITEM_WATCH,
                               widget.reposHeaderViewModel.repositoryWatch,
                               () {
                                 NavigatorUtils.gotoCommonList(
@@ -399,7 +399,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
                               width: 0.3,
                               height: 25.0,
                               decoration: BoxDecoration(
-                                  color: Color(GSYColors.subLightTextColor),
+                                  color: Color(HGColors.subLightTextColor),
                                   boxShadow: [
                                     BoxShadow(
                                         color: Colors.grey,
@@ -409,7 +409,7 @@ class _ReposHeaderItemState extends State<ReposHeaderItem> {
 
                             ///issue状态
                             _getBottomItem(
-                              GSYICons.REPOS_ITEM_ISSUE,
+                              HGICons.REPOS_ITEM_ISSUE,
                               widget.reposHeaderViewModel.repositoryIssue,
                               () {
                                 if (widget.reposHeaderViewModel.allIssueCount ==

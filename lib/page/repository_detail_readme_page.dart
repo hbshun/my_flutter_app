@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:hgbh_app/common/dao/repos_dao.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/page/repository_detail_page.dart';
-import 'package:hgbh_app/widget/gsy_markdown_widget.dart';
+import 'package:hgbh_app/widget/markdown_widget.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 
@@ -81,12 +81,12 @@ class RepositoryDetailReadmePageState extends State<RepositoryDetailReadmePage> 
                 children: <Widget>[
                   new SpinKitDoubleBounce(color: Theme.of(context).primaryColor),
                   new Container(width: 10.0),
-                  new Container(child: new Text(CommonUtils.getLocale(context).loading_text, style: GSYConstant.middleText)),
+                  new Container(child: new Text(CommonUtils.getLocale(context).loading_text, style: HGConstant.middleText)),
                 ],
               ),
             ),
           )
-        : GSYMarkdownWidget(markdownData: markdownData);
+        : HGMarkdownWidget(markdownData: markdownData);
 
     return new ScopedModelDescendant<ReposDetailModel>(
       builder: (context, child, model) => widget,

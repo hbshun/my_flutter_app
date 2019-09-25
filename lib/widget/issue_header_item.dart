@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/model/Issue.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
-import 'package:hgbh_app/widget/gsy_icon_text.dart';
-import 'package:hgbh_app/widget/gsy_markdown_widget.dart';
-import 'package:hgbh_app/widget/gsy_user_icon_widget.dart';
+import 'package:hgbh_app/widget/card_item.dart';
+import 'package:hgbh_app/widget/icon_text.dart';
+import 'package:hgbh_app/widget/markdown_widget.dart';
+import 'package:hgbh_app/widget/user_icon_widget.dart';
 
 
 class IssueHeaderItem extends StatelessWidget {
@@ -23,12 +23,12 @@ class IssueHeaderItem extends StatelessWidget {
     Widget bottomContainer = new Row(
       children: <Widget>[
         ///issue 关闭打开状态
-        new GSYIConText(
-          GSYICons.ISSUE_ITEM_ISSUE,
+        new HGIConText(
+          HGICons.ISSUE_ITEM_ISSUE,
           issueHeaderViewModel.state,
           TextStyle(
             color: issueStateColor,
-            fontSize: GSYConstant.smallTextSize,
+            fontSize: HGConstant.smallTextSize,
           ),
           issueStateColor,
           15.0,
@@ -37,15 +37,15 @@ class IssueHeaderItem extends StatelessWidget {
         new Padding(padding: new EdgeInsets.all(2.0)),
 
         ///issue issue编码
-        new Text(issueHeaderViewModel.issueTag, style: GSYConstant.smallTextWhite),
+        new Text(issueHeaderViewModel.issueTag, style: HGConstant.smallTextWhite),
         new Padding(padding: new EdgeInsets.all(2.0)),
 
         ///issue 评论数
-        new GSYIConText(
-          GSYICons.ISSUE_ITEM_COMMENT,
+        new HGIConText(
+          HGICons.ISSUE_ITEM_COMMENT,
           issueHeaderViewModel.commentCount,
-          GSYConstant.smallTextWhite,
-          Color(GSYColors.white),
+          HGConstant.smallTextWhite,
+          Color(HGColors.white),
           15.0,
           padding: 2.0,
         ),
@@ -61,7 +61,7 @@ class IssueHeaderItem extends StatelessWidget {
         : new Container(
             child: new Text(
               "Close By " + issueHeaderViewModel.closedBy,
-              style: GSYConstant.smallSubLightText,
+              style: HGConstant.smallSubLightText,
             ),
             margin: new EdgeInsets.only(right: 5.0, top: 10.0, bottom: 10.0),
             alignment: Alignment.topRight);
@@ -69,7 +69,7 @@ class IssueHeaderItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new GSYCardItem(
+    return new HGCardItem(
       color: Theme.of(context).primaryColor,
       child: new FlatButton(
         padding: new EdgeInsets.all(0.0),
@@ -82,11 +82,11 @@ class IssueHeaderItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   ///头像
-                  new GSYUserIconWidget(
+                  new HGUserIconWidget(
                       padding: const EdgeInsets.only(top: 0.0, right: 10.0, left: 0.0),
                       width: 50.0,
                       height: 50.0,
-                      image: issueHeaderViewModel.actionUserPic ?? GSYICons.DEFAULT_REMOTE_PIC,
+                      image: issueHeaderViewModel.actionUserPic ?? HGICons.DEFAULT_REMOTE_PIC,
                       onPressed: () {
                         NavigatorUtils.goPerson(context, issueHeaderViewModel.actionUser);
                       }),
@@ -97,12 +97,12 @@ class IssueHeaderItem extends StatelessWidget {
                         new Row(
                           children: <Widget>[
                             ///名称
-                            new Expanded(child: new Text(issueHeaderViewModel.actionUser, style: GSYConstant.normalTextWhite)),
+                            new Expanded(child: new Text(issueHeaderViewModel.actionUser, style: HGConstant.normalTextWhite)),
 
                             ///时间
                             new Text(
                               issueHeaderViewModel.actionTime,
-                              style: GSYConstant.smallSubLightText,
+                              style: HGConstant.smallSubLightText,
                               overflow: TextOverflow.ellipsis,
                             ),
                           ],
@@ -116,7 +116,7 @@ class IssueHeaderItem extends StatelessWidget {
                             ///评论标题
                             child: new Text(
                               issueHeaderViewModel.issueComment,
-                              style: GSYConstant.smallTextWhite,
+                              style: HGConstant.smallTextWhite,
                             ),
                             margin: new EdgeInsets.only(top: 6.0, bottom: 2.0),
                             alignment: Alignment.topLeft),
@@ -130,7 +130,7 @@ class IssueHeaderItem extends StatelessWidget {
               ),
 
               ///评论内容
-              GSYMarkdownWidget(markdownData: issueHeaderViewModel.issueDesHtml, style: GSYMarkdownWidget.DARK_THEME),
+              HGMarkdownWidget(markdownData: issueHeaderViewModel.issueDesHtml, style: HGMarkdownWidget.DARK_THEME),
 
               ///close 用户
               _renderCloseByText()

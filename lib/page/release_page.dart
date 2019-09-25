@@ -3,15 +3,15 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hgbh_app/common/dao/repos_dao.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/html_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_common_option_widget.dart';
-import 'package:hgbh_app/widget/state/gsy_list_state.dart';
-import 'package:hgbh_app/widget/pull/gsy_pull_load_widget.dart';
-import 'package:hgbh_app/widget/gsy_select_item_widget.dart';
-import 'package:hgbh_app/widget/gsy_title_bar.dart';
+import 'package:hgbh_app/widget/common_option_widget.dart';
+import 'package:hgbh_app/widget/state/list_state.dart';
+import 'package:hgbh_app/widget/pull/pull_load_widget.dart';
+import 'package:hgbh_app/widget/select_item_widget.dart';
+import 'package:hgbh_app/widget/title_bar.dart';
 import 'package:hgbh_app/widget/release_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -30,7 +30,7 @@ class ReleasePage extends StatefulWidget {
 }
 
 class _ReleasePageState extends State<ReleasePage>
-    with AutomaticKeepAliveClientMixin<ReleasePage>, GSYListState<ReleasePage> {
+    with AutomaticKeepAliveClientMixin<ReleasePage>, HGListState<ReleasePage> {
   ///配置标题了右侧的更多显示
   final OptionControl titleOptionControl = new OptionControl();
 
@@ -50,7 +50,7 @@ class _ReleasePageState extends State<ReleasePage>
             releaseItemViewModel.actionTargetHtml.length > 0) {
           String html = HtmlUtils.generateHtml(
               releaseItemViewModel.actionTargetHtml,
-              backgroundColor: GSYColors.miWhiteString,
+              backgroundColor: HGColors.miWhiteString,
               userBR: false);
           CommonUtils.launchWebView(
               context, releaseItemViewModel.actionTitle, html);
@@ -117,13 +117,13 @@ class _ReleasePageState extends State<ReleasePage>
     super.build(context); // See AutomaticKeepAliveClientMixin.
     String url = _getUrl();
     return new Scaffold(
-      backgroundColor: Color(GSYColors.mainBackgroundColor),
+      backgroundColor: Color(HGColors.mainBackgroundColor),
       appBar: new AppBar(
-        title: GSYTitleBar(
+        title: HGTitleBar(
           widget.reposName,
-          rightWidget: new GSYCommonOptionWidget(titleOptionControl),
+          rightWidget: new HGCommonOptionWidget(titleOptionControl),
         ),
-        bottom: new GSYSelectItemWidget(
+        bottom: new HGSelectItemWidget(
           [
             CommonUtils.getLocale(context).release_tab_release,
             CommonUtils.getLocale(context).release_tab_tag,
@@ -138,7 +138,7 @@ class _ReleasePageState extends State<ReleasePage>
         ),
         elevation: 4.0,
       ),
-      body: GSYPullLoadWidget(
+      body: HGPullLoadWidget(
         pullLoadWidgetControl,
         (BuildContext context, int index) => _renderEventItem(index),
         handleRefresh,

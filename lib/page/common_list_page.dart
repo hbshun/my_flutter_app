@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/dao/repos_dao.dart';
 import 'package:hgbh_app/common/dao/user_dao.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/state/gsy_list_state.dart';
-import 'package:hgbh_app/widget/pull/gsy_pull_load_widget.dart';
+import 'package:hgbh_app/widget/state/list_state.dart';
+import 'package:hgbh_app/widget/pull/pull_load_widget.dart';
 import 'package:hgbh_app/widget/repos_item.dart';
 import 'package:hgbh_app/widget/user_item.dart';
 
@@ -29,7 +29,7 @@ class CommonListPage extends StatefulWidget {
 class _CommonListPageState extends State<CommonListPage>
     with
         AutomaticKeepAliveClientMixin<CommonListPage>,
-        GSYListState<CommonListPage> {
+        HGListState<CommonListPage> {
   _CommonListPageState();
 
   _renderItem(index) {
@@ -135,7 +135,7 @@ class _CommonListPageState extends State<CommonListPage>
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       )),
-      body: GSYPullLoadWidget(
+      body: HGPullLoadWidget(
         pullLoadWidgetControl,
         (BuildContext context, int index) => _renderItem(index),
         handleRefresh,

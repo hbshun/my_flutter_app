@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:hgbh_app/common/dao/user_dao.dart';
 import 'package:hgbh_app/common/model/User.dart';
-import 'package:hgbh_app/common/redux/gsy_state.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/redux/state.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
+import 'package:hgbh_app/widget/card_item.dart';
 import 'package:redux/redux.dart';
 
 
@@ -26,7 +26,7 @@ class UserProfileInfo extends StatefulWidget {
 class _UserProfileState extends State<UserProfileInfo> {
   _renderItem(
       IconData leftIcon, String title, String value, VoidCallback onPressed) {
-    return new GSYCardItem(
+    return new HGCardItem(
       child: new RawMaterialButton(
         onPressed: onPressed,
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -38,15 +38,15 @@ class _UserProfileState extends State<UserProfileInfo> {
             new Container(
               width: 10.0,
             ),
-            new Text(title, style: GSYConstant.normalSubText),
+            new Text(title, style: HGConstant.normalSubText),
             new Container(
               width: 10.0,
             ),
-            new Expanded(child: new Text(value, style: GSYConstant.normalText)),
+            new Expanded(child: new Text(value, style: HGConstant.normalText)),
             new Container(
               width: 10.0,
             ),
-            new Icon(GSYICons.REPOS_ITEM_NEXT, size: 12.0),
+            new Icon(HGICons.REPOS_ITEM_NEXT, size: 12.0),
           ],
         ),
       ),
@@ -118,7 +118,7 @@ class _UserProfileState extends State<UserProfileInfo> {
 
   @override
   Widget build(BuildContext context) {
-    return new StoreBuilder<GSYState>(builder: (context, store) {
+    return new StoreBuilder<HGState>(builder: (context, store) {
       return Scaffold(
         appBar: new AppBar(
             title: new Hero(
@@ -127,10 +127,10 @@ class _UserProfileState extends State<UserProfileInfo> {
                     color: Colors.transparent,
                     child: new Text(
                       CommonUtils.getLocale(context).home_user_info,
-                      style: GSYConstant.normalTextWhite,
+                      style: HGConstant.normalTextWhite,
                     )))),
         body: new Container(
-          color: Color(GSYColors.white),
+          color: Color(HGColors.white),
           child: new SingleChildScrollView(
             child: new Column(
               children: _renderList(store.state.userInfo, store),

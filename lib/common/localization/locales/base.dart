@@ -1,4 +1,4 @@
-abstract class GSYStringBase {
+abstract class HGStringBase {
   String welcomeMessage;
 
   String app_name;

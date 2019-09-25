@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/model/Repository.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
-import 'package:hgbh_app/widget/gsy_icon_text.dart';
-import 'package:hgbh_app/widget/gsy_user_icon_widget.dart';
+import 'package:hgbh_app/widget/card_item.dart';
+import 'package:hgbh_app/widget/icon_text.dart';
+import 'package:hgbh_app/widget/user_icon_widget.dart';
 
 
 class DemoItem extends StatelessWidget {
@@ -74,7 +74,7 @@ class DemoItem extends StatelessWidget {
                         child: new Text(
                           "这是一点描述",
                           style: TextStyle(
-                            color: Color(GSYColors.subTextColor),
+                            color: Color(HGColors.subTextColor),
                             fontSize: 14.0,
                           ),
                           ///最长三行，超过 ... 显示

@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 
 typedef void SearchSelectItemChanged<String>(String value);
 
-class GSYSearchDrawer extends StatefulWidget {
+class HGSearchDrawer extends StatefulWidget {
   final SearchSelectItemChanged<String> typeCallback;
   final SearchSelectItemChanged<String> sortCallback;
   final SearchSelectItemChanged<String> languageCallback;
 
-  GSYSearchDrawer(this.typeCallback, this.sortCallback, this.languageCallback);
+  HGSearchDrawer(this.typeCallback, this.sortCallback, this.languageCallback);
 
   @override
-  _GSYSearchDrawerState createState() => _GSYSearchDrawerState();
+  _HGSearchDrawerState createState() => _HGSearchDrawerState();
 }
 
-class _GSYSearchDrawerState extends State<GSYSearchDrawer> {
-  _GSYSearchDrawerState();
+class _HGSearchDrawerState extends State<HGSearchDrawer> {
+  _HGSearchDrawerState();
 
   final double itemWidth = 200.0;
 
@@ -26,7 +26,7 @@ class _GSYSearchDrawerState extends State<GSYSearchDrawer> {
       child: new Container(
         color: Theme.of(context).primaryColor,
         child: Container(
-          color: Color(GSYColors.white),
+          color: Color(HGColors.white),
           child: new SingleChildScrollView(
             child: new Column(
               children: _renderList(),
@@ -73,7 +73,7 @@ class _GSYSearchDrawerState extends State<GSYSearchDrawer> {
       child: new Center(
         child: new Text(
           title,
-          style: GSYConstant.middleTextWhite,
+          style: HGConstant.middleTextWhite,
           textAlign: TextAlign.start,
         ),
       ),
@@ -82,7 +82,7 @@ class _GSYSearchDrawerState extends State<GSYSearchDrawer> {
 
   _renderDivider() {
     return Container(
-      color: Color(GSYColors.subTextColor),
+      color: Color(HGColors.subTextColor),
       width: itemWidth,
       height: 0.3,
     );

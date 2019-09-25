@@ -1,6 +1,6 @@
-import 'package:hgbh_app/common/style/gsy_string_base.dart';
+import './base.dart';
 
-class GSYStringZh extends GSYStringBase {
+class HGStringZh extends HGStringBase {
   @override
   String welcomeMessage = "Welcome To Flutter";
 
@@ -41,7 +41,7 @@ class GSYStringZh extends GSYStringBase {
   @override
   String option_web_launcher_error = "url异常";
   @override
-  String option_share_title = "分享自GSYGitHubFlutter： ";
+  String option_share_title = "分享自HGGitHubFlutter： ";
   @override
   String option_share_copy_success = "已经复制到粘贴板";
 

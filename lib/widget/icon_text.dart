@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class GSYIConText extends StatelessWidget {
+class HGIConText extends StatelessWidget {
   final String iconText;
 
   final IconData iconData;
@@ -21,7 +21,7 @@ class GSYIConText extends StatelessWidget {
 
   final double textWidth;
 
-  GSYIConText(
+  HGIConText(
     this.iconData,
     this.iconText,
     this.textStyle,

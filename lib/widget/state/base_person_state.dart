@@ -10,9 +10,9 @@ import 'package:hgbh_app/common/model/UserOrg.dart';
 import 'package:hgbh_app/common/utils/event_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
 import 'package:hgbh_app/widget/event_item.dart';
-import 'package:hgbh_app/widget/pull/nested/gsy_sliver_header_delegate.dart';
+import 'package:hgbh_app/widget/pull/nested/sliver_header_delegate.dart';
 import 'package:hgbh_app/widget/pull/nested/nested_refresh.dart';
-import 'package:hgbh_app/widget/state/gsy_list_state.dart';
+import 'package:hgbh_app/widget/state/list_state.dart';
 import 'package:hgbh_app/widget/user_header.dart';
 import 'package:hgbh_app/widget/user_item.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +20,7 @@ import 'package:provider/provider.dart';
 abstract class BasePersonState<T extends StatefulWidget> extends State<T>
     with
         AutomaticKeepAliveClientMixin<T>,
-        GSYListState<T>,
+        HGListState<T>,
         SingleTickerProviderStateMixin {
   final GlobalKey<NestedScrollViewRefreshIndicatorState> refreshIKey =
       new GlobalKey<NestedScrollViewRefreshIndicatorState>();
@@ -100,7 +100,7 @@ abstract class BasePersonState<T extends StatefulWidget> extends State<T>
       ///头部信息
       SliverPersistentHeader(
         pinned: true,
-        delegate: GSYSliverHeaderDelegate(
+        delegate: HGSliverHeaderDelegate(
             maxHeight: headerSize,
             minHeight: headerSize,
             changeSize: true,
@@ -130,7 +130,7 @@ abstract class BasePersonState<T extends StatefulWidget> extends State<T>
       SliverPersistentHeader(
         pinned: true,
         floating: true,
-        delegate: GSYSliverHeaderDelegate(
+        delegate: HGSliverHeaderDelegate(
             maxHeight: bottomSize,
             minHeight: bottomSize,
             changeSize: true,
@@ -164,7 +164,7 @@ abstract class BasePersonState<T extends StatefulWidget> extends State<T>
 
       ///提交图表
       SliverPersistentHeader(
-        delegate: GSYSliverHeaderDelegate(
+        delegate: HGSliverHeaderDelegate(
             maxHeight: chartSize,
             minHeight: chartSize,
             changeSize: true,

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/model/Event.dart';
 import 'package:hgbh_app/common/model/RepoCommit.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/event_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
-import 'package:hgbh_app/widget/gsy_user_icon_widget.dart';
+import 'package:hgbh_app/widget/card_item.dart';
+import 'package:hgbh_app/widget/user_icon_widget.dart';
 import 'package:hgbh_app/common/model/Notification.dart' as Model;
 
 class EventItem extends StatelessWidget {
@@ -25,14 +25,14 @@ class EventItem extends StatelessWidget {
         : new Container(
             child: new Text(
               eventViewModel.actionDes,
-              style: GSYConstant.smallSubText,
+              style: HGConstant.smallSubText,
               maxLines: 3,
             ),
             margin: new EdgeInsets.only(top: 6.0, bottom: 2.0),
             alignment: Alignment.topLeft);
 
     Widget userImage = (needImage)
-        ? new GSYUserIconWidget(
+        ? new HGUserIconWidget(
             padding: const EdgeInsets.only(top: 0.0, right: 5.0, left: 0.0),
             width: 30.0,
             height: 30.0,
@@ -42,7 +42,7 @@ class EventItem extends StatelessWidget {
             })
         : Container();
     return new Container(
-      child: new GSYCardItem(
+      child: new HGCardItem(
           child: new FlatButton(
               onPressed: onPressed,
               child: new Padding(
@@ -53,12 +53,12 @@ class EventItem extends StatelessWidget {
                     new Row(
                       children: <Widget>[
                         userImage,
-                        new Expanded(child: new Text(eventViewModel.actionUser, style: GSYConstant.smallTextBold)),
-                        new Text(eventViewModel.actionTime, style: GSYConstant.smallSubText),
+                        new Expanded(child: new Text(eventViewModel.actionUser, style: HGConstant.smallTextBold)),
+                        new Text(eventViewModel.actionTime, style: HGConstant.smallSubText),
                       ],
                     ),
                     new Container(
-                        child: new Text(eventViewModel.actionTarget, style: GSYConstant.smallTextBold),
+                        child: new Text(eventViewModel.actionTarget, style: HGConstant.smallTextBold),
                         margin: new EdgeInsets.only(top: 6.0, bottom: 2.0),
                         alignment: Alignment.topLeft),
                     des,

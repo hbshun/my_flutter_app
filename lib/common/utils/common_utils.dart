@@ -10,13 +10,13 @@ import 'package:hgbh_app/common/config/config.dart';
 import 'package:hgbh_app/common/local/local_storage.dart';
 import 'package:hgbh_app/common/localization/default_localizations.dart';
 import 'package:hgbh_app/common/net/address.dart';
-import 'package:hgbh_app/common/redux/gsy_state.dart';
+import 'package:hgbh_app/common/redux/state.dart';
 import 'package:hgbh_app/common/redux/locale_redux.dart';
 import 'package:hgbh_app/common/redux/theme_redux.dart';
-import 'package:hgbh_app/common/style/gsy_string_base.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/localization/locales/base.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_flex_button.dart';
+import 'package:hgbh_app/widget/flex_button.dart';
 import 'package:hgbh_app/widget/issue_edit_dIalog.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -48,7 +48,7 @@ class CommonUtils {
 
   static String getUserChartAddress(String userName) {
     return Address.graphicHost +
-        GSYColors.primaryValueString.replaceAll("#", "") +
+        HGColors.primaryValueString.replaceAll("#", "") +
         "/" +
         userName;
   }
@@ -174,7 +174,7 @@ class CommonUtils {
   /**
    * 切换语言
    */
-  static changeLocale(Store<GSYState> store, int index) {
+  static changeLocale(Store<HGState> store, int index) {
     Locale locale = store.state.platformLocale;
     switch (index) {
       case 1:
@@ -188,13 +188,13 @@ class CommonUtils {
     store.dispatch(RefreshLocaleAction(locale));
   }
 
-  static GSYStringBase getLocale(BuildContext context) {
-    return GSYLocalizations.of(context).currentLocalized;
+  static HGStringBase getLocale(BuildContext context) {
+    return HGLocalizations.of(context).currentLocalized;
   }
 
   static List<Color> getThemeListColor() {
     return [
-      GSYColors.primarySwatch,
+      HGColors.primarySwatch,
       Colors.brown,
       Colors.blue,
       Colors.teal,
@@ -259,9 +259,9 @@ class CommonUtils {
 
   static void launchWebView(BuildContext context, String title, String url) {
     if (url.startsWith("http")) {
-      NavigatorUtils.goGSYWebView(context, url, title);
+      NavigatorUtils.goHGWebView(context, url, title);
     } else {
-      NavigatorUtils.goGSYWebView(
+      NavigatorUtils.goHGWebView(
           context,
           new Uri.dataFromString(url,
                   mimeType: 'text/html', encoding: Encoding.getByName("utf-8"))
@@ -282,7 +282,7 @@ class CommonUtils {
   }
 
   static Future<Null> showLoadingDialog(BuildContext context) {
-    return NavigatorUtils.showGSYDialog(
+    return NavigatorUtils.showHGDialog(
         context: context,
         builder: (BuildContext context) {
           return new Material(
@@ -304,12 +304,12 @@ class CommonUtils {
                       children: <Widget>[
                         new Container(
                             child:
-                                SpinKitCubeGrid(color: Color(GSYColors.white))),
+                                SpinKitCubeGrid(color: Color(HGColors.white))),
                         new Container(height: 10.0),
                         new Container(
                             child: new Text(
                                 CommonUtils.getLocale(context).loading_text,
-                                style: GSYConstant.normalTextWhite)),
+                                style: HGConstant.normalTextWhite)),
                       ],
                     ),
                   ),
@@ -328,7 +328,7 @@ class CommonUtils {
     TextEditingController valueController,
     bool needTitle = true,
   }) {
-    return NavigatorUtils.showGSYDialog(
+    return NavigatorUtils.showHGDialog(
         context: context,
         builder: (BuildContext context) {
           return Center(
@@ -354,7 +354,7 @@ class CommonUtils {
     height = 400.0,
     List<Color> colorList,
   }) {
-    return NavigatorUtils.showGSYDialog(
+    return NavigatorUtils.showHGDialog(
         context: context,
         builder: (BuildContext context) {
           return Center(
@@ -364,14 +364,14 @@ class CommonUtils {
               padding: new EdgeInsets.all(4.0),
               margin: new EdgeInsets.all(20.0),
               decoration: new BoxDecoration(
-                color: Color(GSYColors.white),
+                color: Color(HGColors.white),
                 //用一个BoxDecoration装饰器提供背景图片
                 borderRadius: BorderRadius.all(Radius.circular(4.0)),
               ),
               child: new ListView.builder(
                   itemCount: commitMaps.length,
                   itemBuilder: (context, index) {
-                    return GSYFlexButton(
+                    return HGFlexButton(
                       maxLines: 1,
                       mainAxisAlignment: MainAxisAlignment.start,
                       fontSize: 14.0,
@@ -379,7 +379,7 @@ class CommonUtils {
                           ? colorList[index]
                           : Theme.of(context).primaryColor,
                       text: commitMaps[index],
-                      textColor: Color(GSYColors.white),
+                      textColor: Color(HGColors.white),
                       onPress: () {
                         Navigator.pop(context);
                         onTap(index);
@@ -394,7 +394,7 @@ class CommonUtils {
   ///版本更新
   static Future<Null> showUpdateDialog(
       BuildContext context, String contentMsg) {
-    return NavigatorUtils.showGSYDialog(
+    return NavigatorUtils.showHGDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(

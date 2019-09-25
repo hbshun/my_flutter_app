@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/dao/user_dao.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
 import 'package:hgbh_app/widget/event_item.dart';
-import 'package:hgbh_app/widget/state/gsy_list_state.dart';
-import 'package:hgbh_app/widget/pull/gsy_pull_load_widget.dart';
-import 'package:hgbh_app/widget/gsy_select_item_widget.dart';
-import 'package:hgbh_app/widget/gsy_title_bar.dart';
+import 'package:hgbh_app/widget/state/list_state.dart';
+import 'package:hgbh_app/widget/pull/pull_load_widget.dart';
+import 'package:hgbh_app/widget/select_item_widget.dart';
+import 'package:hgbh_app/widget/title_bar.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:hgbh_app/common/model/Notification.dart' as Model;
 
@@ -20,7 +20,7 @@ class NotifyPage extends StatefulWidget {
 }
 
 class _NotifyPageState extends State<NotifyPage>
-    with AutomaticKeepAliveClientMixin<NotifyPage>, GSYListState<NotifyPage> {
+    with AutomaticKeepAliveClientMixin<NotifyPage>, HGListState<NotifyPage> {
   final SlidableController slidableController = new SlidableController();
 
   int selectIndex = 0;
@@ -117,11 +117,11 @@ class _NotifyPageState extends State<NotifyPage>
   Widget build(BuildContext context) {
     super.build(context); // See AutomaticKeepAliveClientMixin.
     return new Scaffold(
-      backgroundColor: Color(GSYColors.mainBackgroundColor),
+      backgroundColor: Color(HGColors.mainBackgroundColor),
       appBar: new AppBar(
-        title: GSYTitleBar(
+        title: HGTitleBar(
           CommonUtils.getLocale(context).notify_title,
-          iconData: GSYICons.NOTIFY_ALL_READ,
+          iconData: HGICons.NOTIFY_ALL_READ,
           needRightLocalIcon: true,
           onPressed: () {
             CommonUtils.showLoadingDialog(context);
@@ -131,7 +131,7 @@ class _NotifyPageState extends State<NotifyPage>
             });
           },
         ),
-        bottom: new GSYSelectItemWidget(
+        bottom: new HGSelectItemWidget(
           [
             CommonUtils.getLocale(context).notify_tab_unread,
             CommonUtils.getLocale(context).notify_tab_part,
@@ -147,7 +147,7 @@ class _NotifyPageState extends State<NotifyPage>
         ),
         elevation: 4.0,
       ),
-      body: GSYPullLoadWidget(
+      body: HGPullLoadWidget(
         pullLoadWidgetControl,
         (BuildContext context, int index) => _renderItem(index),
         handleRefresh,

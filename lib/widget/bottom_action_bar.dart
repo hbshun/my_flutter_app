@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class GSYBottomAppBar extends StatelessWidget {
-  const GSYBottomAppBar({
+class HGBottomAppBar extends StatelessWidget {
+  const HGBottomAppBar({
     this.color,
     this.fabLocation,
     this.shape,

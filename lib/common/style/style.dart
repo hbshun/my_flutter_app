@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 ///颜色
-class GSYColors {
+class HGColors {
   static const String primaryValueString = "#24292E";
   static const String primaryLightValueString = "#42464b";
   static const String primaryDarkValueString = "#121917";
@@ -44,9 +44,9 @@ class GSYColors {
 }
 
 ///文本样式
-class GSYConstant {
+class HGConstant {
 
-  static const String app_default_share_url = "https://github.com/CarGuo/GSYGithubAppFlutter";
+  static const String app_default_share_url = "https://github.com/CarGuo/HGGithubAppFlutter";
 
   static const lagerTextSize = 30.0;
   static const bigTextSize = 23.0;
@@ -56,196 +56,196 @@ class GSYConstant {
   static const minTextSize = 12.0;
 
   static const minText = TextStyle(
-    color: Color(GSYColors.subLightTextColor),
+    color: Color(HGColors.subLightTextColor),
     fontSize: minTextSize,
   );
 
   static const smallTextWhite = TextStyle(
-    color: Color(GSYColors.textColorWhite),
+    color: Color(HGColors.textColorWhite),
     fontSize: smallTextSize,
   );
 
   static const smallText = TextStyle(
-    color: Color(GSYColors.mainTextColor),
+    color: Color(HGColors.mainTextColor),
     fontSize: smallTextSize,
   );
 
   static const smallTextBold = TextStyle(
-    color: Color(GSYColors.mainTextColor),
+    color: Color(HGColors.mainTextColor),
     fontSize: smallTextSize,
     fontWeight: FontWeight.bold,
   );
 
   static const smallSubLightText = TextStyle(
-    color: Color(GSYColors.subLightTextColor),
+    color: Color(HGColors.subLightTextColor),
     fontSize: smallTextSize,
   );
 
   static const smallActionLightText = TextStyle(
-    color: Color(GSYColors.actionBlue),
+    color: Color(HGColors.actionBlue),
     fontSize: smallTextSize,
   );
 
   static const smallMiLightText = TextStyle(
-    color: Color(GSYColors.miWhite),
+    color: Color(HGColors.miWhite),
     fontSize: smallTextSize,
   );
 
   static const smallSubText = TextStyle(
-    color: Color(GSYColors.subTextColor),
+    color: Color(HGColors.subTextColor),
     fontSize: smallTextSize,
   );
 
   static const middleText = TextStyle(
-    color: Color(GSYColors.mainTextColor),
+    color: Color(HGColors.mainTextColor),
     fontSize: middleTextWhiteSize,
   );
 
   static const middleTextWhite = TextStyle(
-    color: Color(GSYColors.textColorWhite),
+    color: Color(HGColors.textColorWhite),
     fontSize: middleTextWhiteSize,
   );
 
   static const middleSubText = TextStyle(
-    color: Color(GSYColors.subTextColor),
+    color: Color(HGColors.subTextColor),
     fontSize: middleTextWhiteSize,
   );
 
   static const middleSubLightText = TextStyle(
-    color: Color(GSYColors.subLightTextColor),
+    color: Color(HGColors.subLightTextColor),
     fontSize: middleTextWhiteSize,
   );
 
   static const middleTextBold = TextStyle(
-    color: Color(GSYColors.mainTextColor),
+    color: Color(HGColors.mainTextColor),
     fontSize: middleTextWhiteSize,
     fontWeight: FontWeight.bold,
   );
 
   static const middleTextWhiteBold = TextStyle(
-    color: Color(GSYColors.textColorWhite),
+    color: Color(HGColors.textColorWhite),
     fontSize: middleTextWhiteSize,
     fontWeight: FontWeight.bold,
   );
 
   static const middleSubTextBold = TextStyle(
-    color: Color(GSYColors.subTextColor),
+    color: Color(HGColors.subTextColor),
     fontSize: middleTextWhiteSize,
     fontWeight: FontWeight.bold,
   );
 
   static const normalText = TextStyle(
-    color: Color(GSYColors.mainTextColor),
+    color: Color(HGColors.mainTextColor),
     fontSize: normalTextSize,
   );
 
   static const normalTextBold = TextStyle(
-    color: Color(GSYColors.mainTextColor),
+    color: Color(HGColors.mainTextColor),
     fontSize: normalTextSize,
     fontWeight: FontWeight.bold,
   );
 
   static const normalSubText = TextStyle(
-    color: Color(GSYColors.subTextColor),
+    color: Color(HGColors.subTextColor),
     fontSize: normalTextSize,
   );
 
   static const normalTextWhite = TextStyle(
-    color: Color(GSYColors.textColorWhite),
+    color: Color(HGColors.textColorWhite),
     fontSize: normalTextSize,
   );
 
   static const normalTextMitWhiteBold = TextStyle(
-    color: Color(GSYColors.miWhite),
+    color: Color(HGColors.miWhite),
     fontSize: normalTextSize,
     fontWeight: FontWeight.bold,
   );
 
   static const normalTextActionWhiteBold = TextStyle(
-    color: Color(GSYColors.actionBlue),
+    color: Color(HGColors.actionBlue),
     fontSize: normalTextSize,
     fontWeight: FontWeight.bold,
   );
 
   static const normalTextLight = TextStyle(
-    color: Color(GSYColors.primaryLightValue),
+    color: Color(HGColors.primaryLightValue),
     fontSize: normalTextSize,
   );
 
   static const largeText = TextStyle(
-    color: Color(GSYColors.mainTextColor),
+    color: Color(HGColors.mainTextColor),
     fontSize: bigTextSize,
   );
 
   static const largeTextBold = TextStyle(
-    color: Color(GSYColors.mainTextColor),
+    color: Color(HGColors.mainTextColor),
     fontSize: bigTextSize,
     fontWeight: FontWeight.bold,
   );
 
   static const largeTextWhite = TextStyle(
-    color: Color(GSYColors.textColorWhite),
+    color: Color(HGColors.textColorWhite),
     fontSize: bigTextSize,
   );
 
   static const largeTextWhiteBold = TextStyle(
-    color: Color(GSYColors.textColorWhite),
+    color: Color(HGColors.textColorWhite),
     fontSize: bigTextSize,
     fontWeight: FontWeight.bold,
   );
 
   static const largeLargeTextWhite = TextStyle(
-    color: Color(GSYColors.textColorWhite),
+    color: Color(HGColors.textColorWhite),
     fontSize: lagerTextSize,
     fontWeight: FontWeight.bold,
   );
 
   static const largeLargeText = TextStyle(
-    color: Color(GSYColors.primaryValue),
+    color: Color(HGColors.primaryValue),
     fontSize: lagerTextSize,
     fontWeight: FontWeight.bold,
   );
 }
 
-class GSYICons {
+class HGICons {
   static const String FONT_FAMILY = 'wxcIconFont';
 
   static const String DEFAULT_USER_ICON = 'static/images/logo.png';
   static const String DEFAULT_IMAGE = 'static/images/default_img.png';
-  static const String DEFAULT_REMOTE_PIC = 'https://raw.githubusercontent.com/CarGuo/GSYGithubAppFlutter/master/static/images/logo.png';
+  static const String DEFAULT_REMOTE_PIC = 'https://raw.githubusercontent.com/CarGuo/HGGithubAppFlutter/master/static/images/logo.png';
 
-  static const IconData HOME = const IconData(0xe624, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData MORE = const IconData(0xe674, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData SEARCH = const IconData(0xe61c, fontFamily: GSYICons.FONT_FAMILY);
+  static const IconData HOME = const IconData(0xe624, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData MORE = const IconData(0xe674, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData SEARCH = const IconData(0xe61c, fontFamily: HGICons.FONT_FAMILY);
 
-  static const IconData MAIN_DT = const IconData(0xe684, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData MAIN_QS = const IconData(0xe818, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData MAIN_MY = const IconData(0xe6d0, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData MAIN_SEARCH = const IconData(0xe61c, fontFamily: GSYICons.FONT_FAMILY);
+  static const IconData MAIN_DT = const IconData(0xe684, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData MAIN_QS = const IconData(0xe818, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData MAIN_MY = const IconData(0xe6d0, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData MAIN_SEARCH = const IconData(0xe61c, fontFamily: HGICons.FONT_FAMILY);
 
-  static const IconData LOGIN_USER = const IconData(0xe666, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData LOGIN_PW = const IconData(0xe60e, fontFamily: GSYICons.FONT_FAMILY);
+  static const IconData LOGIN_USER = const IconData(0xe666, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData LOGIN_PW = const IconData(0xe60e, fontFamily: HGICons.FONT_FAMILY);
 
-  static const IconData REPOS_ITEM_USER = const IconData(0xe63e, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData REPOS_ITEM_STAR = const IconData(0xe643, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData REPOS_ITEM_FORK = const IconData(0xe67e, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData REPOS_ITEM_ISSUE = const IconData(0xe661, fontFamily: GSYICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_USER = const IconData(0xe63e, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_STAR = const IconData(0xe643, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_FORK = const IconData(0xe67e, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_ISSUE = const IconData(0xe661, fontFamily: HGICons.FONT_FAMILY);
 
-  static const IconData REPOS_ITEM_STARED = const IconData(0xe698, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData REPOS_ITEM_WATCH = const IconData(0xe681, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData REPOS_ITEM_WATCHED = const IconData(0xe629, fontFamily: GSYICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_STARED = const IconData(0xe698, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_WATCH = const IconData(0xe681, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_WATCHED = const IconData(0xe629, fontFamily: HGICons.FONT_FAMILY);
   static const IconData REPOS_ITEM_DIR = Icons.folder;
-  static const IconData REPOS_ITEM_FILE = const IconData(0xea77, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData REPOS_ITEM_NEXT = const IconData(0xe610, fontFamily: GSYICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_FILE = const IconData(0xea77, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData REPOS_ITEM_NEXT = const IconData(0xe610, fontFamily: HGICons.FONT_FAMILY);
 
-  static const IconData USER_ITEM_COMPANY = const IconData(0xe63e, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData USER_ITEM_LOCATION = const IconData(0xe7e6, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData USER_ITEM_LINK = const IconData(0xe670, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData USER_NOTIFY = const IconData(0xe600, fontFamily: GSYICons.FONT_FAMILY);
+  static const IconData USER_ITEM_COMPANY = const IconData(0xe63e, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData USER_ITEM_LOCATION = const IconData(0xe7e6, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData USER_ITEM_LINK = const IconData(0xe670, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData USER_NOTIFY = const IconData(0xe600, fontFamily: HGICons.FONT_FAMILY);
 
-  static const IconData ISSUE_ITEM_ISSUE = const IconData(0xe661, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData ISSUE_ITEM_COMMENT = const IconData(0xe6ba, fontFamily: GSYICons.FONT_FAMILY);
-  static const IconData ISSUE_ITEM_ADD = const IconData(0xe662, fontFamily: GSYICons.FONT_FAMILY);
+  static const IconData ISSUE_ITEM_ISSUE = const IconData(0xe661, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData ISSUE_ITEM_COMMENT = const IconData(0xe6ba, fontFamily: HGICons.FONT_FAMILY);
+  static const IconData ISSUE_ITEM_ADD = const IconData(0xe662, fontFamily: HGICons.FONT_FAMILY);
 
   static const IconData ISSUE_EDIT_H1 = Icons.filter_1;
   static const IconData ISSUE_EDIT_H2 = Icons.filter_2;
@@ -256,7 +256,7 @@ class GSYICons {
   static const IconData ISSUE_EDIT_CODE = Icons.format_shapes;
   static const IconData ISSUE_EDIT_LINK = Icons.insert_link;
 
-  static const IconData NOTIFY_ALL_READ = const IconData(0xe62f, fontFamily: GSYICons.FONT_FAMILY);
+  static const IconData NOTIFY_ALL_READ = const IconData(0xe62f, fontFamily: HGICons.FONT_FAMILY);
 
   static const IconData PUSH_ITEM_EDIT = Icons.mode_edit;
   static const IconData PUSH_ITEM_ADD = Icons.add_box;

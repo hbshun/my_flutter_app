@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 
-import 'package:hgbh_app/widget/pull/gsy_pull_load_widget.dart';
+import 'package:hgbh_app/widget/pull/pull_load_widget.dart';
 import 'nested_refresh.dart';
 
 ///通用下上刷新控件
-class GSYNestedPullLoadWidget extends StatefulWidget {
+class HGNestedPullLoadWidget extends StatefulWidget {
   ///item渲染
   final IndexedWidgetBuilder itemBuilder;
 
@@ -18,19 +18,19 @@ class GSYNestedPullLoadWidget extends StatefulWidget {
   final RefreshCallback onRefresh;
 
   ///控制器，比如数据和一些配置
-  final GSYPullLoadWidgetControl control;
+  final HGPullLoadWidgetControl control;
 
   final Key refreshKey;
   final NestedScrollViewHeaderSliversBuilder headerSliverBuilder;
 
   final ScrollController scrollController;
 
-  GSYNestedPullLoadWidget(
+  HGNestedPullLoadWidget(
       this.control, this.itemBuilder, this.onRefresh, this.onLoadMore,
       {this.refreshKey, this.headerSliverBuilder, this.scrollController});
 
   @override
-  _GSYNestedPullLoadWidgetState createState() => _GSYNestedPullLoadWidgetState(
+  _HGNestedPullLoadWidgetState createState() => _HGNestedPullLoadWidgetState(
       this.control,
       this.itemBuilder,
       this.onRefresh,
@@ -38,7 +38,7 @@ class GSYNestedPullLoadWidget extends StatefulWidget {
       this.refreshKey);
 }
 
-class _GSYNestedPullLoadWidgetState extends State<GSYNestedPullLoadWidget> {
+class _HGNestedPullLoadWidgetState extends State<HGNestedPullLoadWidget> {
   final IndexedWidgetBuilder itemBuilder;
 
   final RefreshCallback onLoadMore;
@@ -47,9 +47,9 @@ class _GSYNestedPullLoadWidgetState extends State<GSYNestedPullLoadWidget> {
 
   final Key refreshKey;
 
-  GSYPullLoadWidgetControl control;
+  HGPullLoadWidgetControl control;
 
-  _GSYNestedPullLoadWidgetState(this.control, this.itemBuilder, this.onRefresh,
+  _HGNestedPullLoadWidgetState(this.control, this.itemBuilder, this.onRefresh,
       this.onLoadMore, this.refreshKey);
 
   @override
@@ -147,13 +147,13 @@ class _GSYNestedPullLoadWidgetState extends State<GSYNestedPullLoadWidget> {
           FlatButton(
             onPressed: () {},
             child: new Image(
-                image: new AssetImage(GSYICons.DEFAULT_USER_ICON),
+                image: new AssetImage(HGICons.DEFAULT_USER_ICON),
                 width: 70.0,
                 height: 70.0),
           ),
           Container(
             child: Text(CommonUtils.getLocale(context).app_empty,
-                style: GSYConstant.normalText),
+                style: HGConstant.normalText),
           ),
         ],
       ),

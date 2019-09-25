@@ -4,14 +4,14 @@ import 'dart:io';
 import 'package:android_intent/android_intent.dart';
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/localization/default_localizations.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
 import 'package:hgbh_app/page/dynamic_page.dart';
 import 'package:hgbh_app/page/my_page.dart';
 import 'package:hgbh_app/page/trend_page.dart';
-import 'package:hgbh_app/widget/gsy_tabbar_widget.dart';
-import 'package:hgbh_app/widget/gsy_title_bar.dart';
+import 'package:hgbh_app/widget/tabbar_widget.dart';
+import 'package:hgbh_app/widget/title_bar.dart';
 import 'package:hgbh_app/widget/home_drawer.dart';
 
 import '../assets/icons.dart';
@@ -46,29 +46,29 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> tabs = [
-      _renderTab(GSYICons.MAIN_DT, CommonUtils.getLocale(context).home_dynamic),
-      _renderTab(GSYICons.MAIN_QS, CommonUtils.getLocale(context).home_trend),
-      _renderTab(HGIcons.star2, CommonUtils.getLocale(context).home_my),
+      _renderTab(HGIcons.zhudaohang_xianshanggouwu, CommonUtils.getLocale(context).home_dynamic),
+      _renderTab(HGIcons.zhudaohang_fenlei, CommonUtils.getLocale(context).home_trend),
+      _renderTab(HGIcons.zhudaohang_pinpai, CommonUtils.getLocale(context).home_my),
     ];
     ///增加返回按键监听
     return WillPopScope(
       onWillPop: () {
         return _dialogExitApp(context);
       },
-      child: new GSYTabBarWidget(
+      child: new HGTabBarWidget(
         drawer: new HomeDrawer(),
-        type: GSYTabBarWidget.BOTTOM_TAB,
+        type: HGTabBarWidget.BOTTOM_TAB,
         tabItems: tabs,
         tabViews: [
           new DynamicPage(),
           new TrendPage(),
           new MyPage(),
         ],
-        backgroundColor: GSYColors.primarySwatch,
-        indicatorColor: Color(GSYColors.white),
-        title: GSYTitleBar(
-          GSYLocalizations.of(context).currentLocalized.app_name,
-          iconData: GSYICons.MAIN_SEARCH,
+        backgroundColor: HGColors.primarySwatch,
+        indicatorColor: Color(HGColors.white),
+        title: HGTitleBar(
+          HGLocalizations.of(context).currentLocalized.app_name,
+          iconData: HGICons.MAIN_SEARCH,
           needRightLocalIcon: true,
           onPressed: () {
             NavigatorUtils.goSearchPage(context);

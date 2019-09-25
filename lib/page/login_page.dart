@@ -6,12 +6,12 @@ import 'package:hgbh_app/common/config/config.dart';
 import 'package:hgbh_app/common/dao/user_dao.dart';
 import 'package:hgbh_app/common/local/local_storage.dart';
 import 'package:hgbh_app/common/localization/default_localizations.dart';
-import 'package:hgbh_app/common/redux/gsy_state.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/redux/state.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_flex_button.dart';
-import 'package:hgbh_app/widget/gsy_input_widget.dart';
+import 'package:hgbh_app/widget/flex_button.dart';
+import 'package:hgbh_app/widget/input_widget.dart';
 
 class LoginPage extends StatefulWidget {
   static final String sName = "login";
@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     ///共享 store
-    return new StoreBuilder<GSYState>(builder: (context, store) {
+    return new StoreBuilder<HGState>(builder: (context, store) {
       /// 触摸收起键盘
       return new GestureDetector(
         behavior: HitTestBehavior.translucent,
@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                     elevation: 5.0,
                     shape: new RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                    color: Color(GSYColors.cardWhite),
+                    color: Color(HGColors.cardWhite),
                     margin: const EdgeInsets.only(left: 30.0, right: 30.0),
                     child: new Padding(
                       padding: new EdgeInsets.only(
@@ -77,24 +77,24 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           new Image(
-                              image: new AssetImage(GSYICons.DEFAULT_USER_ICON),
+                              image: new AssetImage(HGICons.DEFAULT_USER_ICON),
                               width: 90.0,
                               height: 90.0),
                           new Padding(padding: new EdgeInsets.all(10.0)),
-                          new GSYInputWidget(
+                          new HGInputWidget(
                             hintText: CommonUtils.getLocale(context)
                                 .login_username_hint_text,
-                            iconData: GSYICons.LOGIN_USER,
+                            iconData: HGICons.LOGIN_USER,
                             onChanged: (String value) {
                               _userName = value;
                             },
                             controller: userController,
                           ),
                           new Padding(padding: new EdgeInsets.all(10.0)),
-                          new GSYInputWidget(
+                          new HGInputWidget(
                             hintText: CommonUtils.getLocale(context)
                                 .login_password_hint_text,
-                            iconData: GSYICons.LOGIN_PW,
+                            iconData: HGICons.LOGIN_PW,
                             obscureText: true,
                             onChanged: (String value) {
                               _password = value;
@@ -102,10 +102,10 @@ class _LoginPageState extends State<LoginPage> {
                             controller: pwController,
                           ),
                           new Padding(padding: new EdgeInsets.all(30.0)),
-                          new GSYFlexButton(
+                          new HGFlexButton(
                             text: CommonUtils.getLocale(context).login_text,
                             color: Theme.of(context).primaryColor,
-                            textColor: Color(GSYColors.textWhite),
+                            textColor: Color(HGColors.textWhite),
                             onPress: () {
                               if (_userName == null || _userName.length == 0) {
                                 return;
@@ -136,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: Text(
                               CommonUtils.getLocale(context).switch_language,
                               style: TextStyle(
-                                  color: Color(GSYColors.subTextColor)),
+                                  color: Color(HGColors.subTextColor)),
                             ),
                           ),
                           new Padding(padding: new EdgeInsets.all(15.0)),

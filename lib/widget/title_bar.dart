@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class GSYTitleBar extends StatelessWidget {
+class HGTitleBar extends StatelessWidget {
   final String title;
 
   final IconData iconData;
@@ -11,7 +11,7 @@ class GSYTitleBar extends StatelessWidget {
 
   final Widget rightWidget;
 
-  GSYTitleBar(this.title, {this.iconData, this.onPressed, this.needRightLocalIcon = false, this.rightWidget});
+  HGTitleBar(this.title, {this.iconData, this.onPressed, this.needRightLocalIcon = false, this.rightWidget});
 
   @override
   Widget build(BuildContext context) {

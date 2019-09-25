@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 
 ///通用下上刷新控件
-class GSYPullLoadWidget extends StatefulWidget {
+class HGPullLoadWidget extends StatefulWidget {
   ///item渲染
   final IndexedWidgetBuilder itemBuilder;
 
@@ -15,17 +15,17 @@ class GSYPullLoadWidget extends StatefulWidget {
   final RefreshCallback onRefresh;
 
   ///控制器，比如数据和一些配置
-  final GSYPullLoadWidgetControl control;
+  final HGPullLoadWidgetControl control;
 
   final Key refreshKey;
 
-  GSYPullLoadWidget(this.control, this.itemBuilder, this.onRefresh, this.onLoadMore, {this.refreshKey});
+  HGPullLoadWidget(this.control, this.itemBuilder, this.onRefresh, this.onLoadMore, {this.refreshKey});
 
   @override
-  _GSYPullLoadWidgetState createState() => _GSYPullLoadWidgetState(this.control, this.itemBuilder, this.onRefresh, this.onLoadMore, this.refreshKey);
+  _HGPullLoadWidgetState createState() => _HGPullLoadWidgetState(this.control, this.itemBuilder, this.onRefresh, this.onLoadMore, this.refreshKey);
 }
 
-class _GSYPullLoadWidgetState extends State<GSYPullLoadWidget> {
+class _HGPullLoadWidgetState extends State<HGPullLoadWidget> {
   final IndexedWidgetBuilder itemBuilder;
 
   final RefreshCallback onLoadMore;
@@ -34,9 +34,9 @@ class _GSYPullLoadWidgetState extends State<GSYPullLoadWidget> {
 
   final Key refreshKey;
 
-  GSYPullLoadWidgetControl control;
+  HGPullLoadWidgetControl control;
 
-  _GSYPullLoadWidgetState(this.control, this.itemBuilder, this.onRefresh, this.onLoadMore, this.refreshKey);
+  _HGPullLoadWidgetState(this.control, this.itemBuilder, this.onRefresh, this.onLoadMore, this.refreshKey);
 
   final ScrollController _scrollController = new ScrollController();
 
@@ -137,10 +137,10 @@ class _GSYPullLoadWidgetState extends State<GSYPullLoadWidget> {
         children: <Widget>[
           FlatButton(
             onPressed: () {},
-            child: new Image(image: new AssetImage(GSYICons.DEFAULT_USER_ICON), width: 70.0, height: 70.0),
+            child: new Image(image: new AssetImage(HGICons.DEFAULT_USER_ICON), width: 70.0, height: 70.0),
           ),
           Container(
-            child: Text(CommonUtils.getLocale(context).app_empty, style: GSYConstant.normalText),
+            child: Text(CommonUtils.getLocale(context).app_empty, style: HGConstant.normalText),
           ),
         ],
       ),
@@ -180,7 +180,7 @@ class _GSYPullLoadWidgetState extends State<GSYPullLoadWidget> {
   }
 }
 
-class GSYPullLoadWidgetControl {
+class HGPullLoadWidgetControl {
   ///数据，对齐增减，不能替换
   List dataList = new List();
 

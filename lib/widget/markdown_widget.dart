@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/widget/syntax_high_lighter.dart';
 
 
-class GSYMarkdownWidget extends StatelessWidget {
+class HGMarkdownWidget extends StatelessWidget {
   static const int DARK_WHITE = 0;
 
   static const int DARK_LIGHT = 1;
@@ -16,7 +16,7 @@ class GSYMarkdownWidget extends StatelessWidget {
 
   final int style;
 
-  GSYMarkdownWidget({this.markdownData = "", this.style = DARK_WHITE});
+  HGMarkdownWidget({this.markdownData = "", this.style = DARK_WHITE});
 
   _getCommonSheet(BuildContext context, Color codeBackground) {
     MarkdownStyleSheet markdownStyleSheet =
@@ -27,65 +27,65 @@ class GSYMarkdownWidget extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(4.0)),
                 color: codeBackground,
                 border: new Border.all(
-                    color: Color(GSYColors.subTextColor), width: 0.3)))
+                    color: Color(HGColors.subTextColor), width: 0.3)))
         .copyWith(
             blockquoteDecoration: new BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                color: Color(GSYColors.subTextColor),
+                color: Color(HGColors.subTextColor),
                 border: new Border.all(
-                    color: Color(GSYColors.subTextColor), width: 0.3)),
-            blockquote: GSYConstant.smallTextWhite);
+                    color: Color(HGColors.subTextColor), width: 0.3)),
+            blockquote: HGConstant.smallTextWhite);
   }
 
   _getStyleSheetDark(BuildContext context) {
     return _getCommonSheet(context, Color.fromRGBO(40, 44, 52, 1.00)).copyWith(
-      p: GSYConstant.smallTextWhite,
-      h1: GSYConstant.largeLargeTextWhite,
-      h2: GSYConstant.largeTextWhiteBold,
-      h3: GSYConstant.normalTextMitWhiteBold,
-      h4: GSYConstant.middleTextWhite,
-      h5: GSYConstant.smallTextWhite,
-      h6: GSYConstant.smallTextWhite,
+      p: HGConstant.smallTextWhite,
+      h1: HGConstant.largeLargeTextWhite,
+      h2: HGConstant.largeTextWhiteBold,
+      h3: HGConstant.normalTextMitWhiteBold,
+      h4: HGConstant.middleTextWhite,
+      h5: HGConstant.smallTextWhite,
+      h6: HGConstant.smallTextWhite,
       em: const TextStyle(fontStyle: FontStyle.italic),
-      strong: GSYConstant.middleTextWhiteBold,
-      code: GSYConstant.smallSubText,
+      strong: HGConstant.middleTextWhiteBold,
+      code: HGConstant.smallSubText,
     );
   }
 
   _getStyleSheetWhite(BuildContext context) {
     return _getCommonSheet(context, Color.fromRGBO(40, 44, 52, 1.00)).copyWith(
-      p: GSYConstant.smallText,
-      h1: GSYConstant.largeLargeText,
-      h2: GSYConstant.largeTextBold,
-      h3: GSYConstant.normalTextBold,
-      h4: GSYConstant.middleText,
-      h5: GSYConstant.smallText,
-      h6: GSYConstant.smallText,
-      strong: GSYConstant.middleTextBold,
-      code: GSYConstant.smallSubText,
+      p: HGConstant.smallText,
+      h1: HGConstant.largeLargeText,
+      h2: HGConstant.largeTextBold,
+      h3: HGConstant.normalTextBold,
+      h4: HGConstant.middleText,
+      h5: HGConstant.smallText,
+      h6: HGConstant.smallText,
+      strong: HGConstant.middleTextBold,
+      code: HGConstant.smallSubText,
     );
   }
 
   _getStyleSheetTheme(BuildContext context) {
     return _getCommonSheet(context, Color.fromRGBO(40, 44, 52, 1.00)).copyWith(
-      p: GSYConstant.smallTextWhite,
-      h1: GSYConstant.largeLargeTextWhite,
-      h2: GSYConstant.largeTextWhiteBold,
-      h3: GSYConstant.normalTextMitWhiteBold,
-      h4: GSYConstant.middleTextWhite,
-      h5: GSYConstant.smallTextWhite,
-      h6: GSYConstant.smallTextWhite,
+      p: HGConstant.smallTextWhite,
+      h1: HGConstant.largeLargeTextWhite,
+      h2: HGConstant.largeTextWhiteBold,
+      h3: HGConstant.normalTextMitWhiteBold,
+      h4: HGConstant.middleTextWhite,
+      h5: HGConstant.smallTextWhite,
+      h6: HGConstant.smallTextWhite,
       em: const TextStyle(fontStyle: FontStyle.italic),
-      strong: GSYConstant.middleTextWhiteBold,
-      code: GSYConstant.smallSubText,
+      strong: HGConstant.middleTextWhiteBold,
+      code: HGConstant.smallSubText,
     );
   }
 
   _getBackgroundColor(context) {
-    Color background = Color(GSYColors.white);
+    Color background = Color(HGColors.white);
     switch (style) {
       case DARK_LIGHT:
-        background = Color(GSYColors.primaryLightValue);
+        background = Color(HGColors.primaryLightValue);
         break;
       case DARK_THEME:
         background = Theme.of(context).primaryColor;
@@ -173,7 +173,7 @@ class GSYMarkdownWidget extends StatelessWidget {
       child: SingleChildScrollView(
         child: new MarkdownBody(
           styleSheet: _getStyle(context),
-          syntaxHighlighter: new GSYHighlighter(),
+          syntaxHighlighter: new HGHighlighter(),
           data: _getMarkDownData(markdownData),
           onTapLink: (String source) {
             CommonUtils.launchUrl(context, source);
@@ -184,7 +184,7 @@ class GSYMarkdownWidget extends StatelessWidget {
   }
 }
 
-class GSYHighlighter extends SyntaxHighlighter {
+class HGHighlighter extends SyntaxHighlighter {
   @override
   TextSpan format(String source) {
     String showSource = source.replaceAll("&lt;", "<");

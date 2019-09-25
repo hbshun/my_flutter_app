@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/router/anima_route.dart';
 import 'package:hgbh_app/page/code_detail_page_web.dart';
 import 'package:hgbh_app/page/common_list_page.dart';
-import 'package:hgbh_app/page/gsy_webview.dart';
+import 'package:hgbh_app/page/webview.dart';
 import 'package:hgbh_app/page/home_page.dart';
 import 'package:hgbh_app/page/honor_list_page.dart';
 import 'package:hgbh_app/page/issue_detail_page.dart';
@@ -150,8 +150,8 @@ class NavigatorUtils {
   }
 
   ///全屏Web页面
-  static Future goGSYWebView(BuildContext context, String url, String title) {
-    return NavigatorRouter(context, new GSYWebView(url, title));
+  static Future goHGWebView(BuildContext context, String url, String title) {
+    return NavigatorRouter(context, new HGWebView(url, title));
   }
 
   ///文件代码详情Web
@@ -223,7 +223,7 @@ class NavigatorUtils {
   }
 
   ///弹出 dialog
-  static Future<T> showGSYDialog<T>({
+  static Future<T> showHGDialog<T>({
     @required BuildContext context,
     bool barrierDismissible = true,
     WidgetBuilder builder,

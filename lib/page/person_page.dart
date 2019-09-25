@@ -8,10 +8,10 @@ import 'package:hgbh_app/common/dao/user_dao.dart';
 import 'package:hgbh_app/common/model/User.dart';
 import 'package:hgbh_app/common/model/UserOrg.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
-import 'package:hgbh_app/widget/pull/nested/gsy_nested_pull_load_widget.dart';
+import 'package:hgbh_app/widget/pull/nested/nested_pull_load_widget.dart';
 import 'package:hgbh_app/widget/state/base_person_state.dart';
-import 'package:hgbh_app/widget/gsy_common_option_widget.dart';
-import 'package:hgbh_app/widget/gsy_title_bar.dart';
+import 'package:hgbh_app/widget/common_option_widget.dart';
+import 'package:hgbh_app/widget/title_bar.dart';
 
 class PersonPage extends StatefulWidget {
   static final String sName = "person";
@@ -140,9 +140,9 @@ class _PersonState extends BasePersonState<PersonPage> {
     super.build(context);
     return new Scaffold(
         appBar: new AppBar(
-            title: GSYTitleBar(
+            title: HGTitleBar(
           (userInfo != null && userInfo.login != null) ? userInfo.login : "",
-          rightWidget: GSYCommonOptionWidget(titleOptionControl),
+          rightWidget: HGCommonOptionWidget(titleOptionControl),
         )),
         floatingActionButton: new FloatingActionButton(
             child: new Text(focus),
@@ -162,7 +162,7 @@ class _PersonState extends BasePersonState<PersonPage> {
                 _getFocusStatus();
               });
             }),
-        body: GSYNestedPullLoadWidget(
+        body: HGNestedPullLoadWidget(
           pullLoadWidgetControl,
           (BuildContext context, int index) =>
               renderItem(index, userInfo, beStaredCount, null, null, orgList),

@@ -3,10 +3,10 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:hgbh_app/common/dao/event_dao.dart';
 import 'package:hgbh_app/common/dao/repos_dao.dart';
 import 'package:hgbh_app/common/dao/user_dao.dart';
-import 'package:hgbh_app/common/redux/gsy_state.dart';
+import 'package:hgbh_app/common/redux/state.dart';
 import 'package:hgbh_app/common/redux/user_redux.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
-import 'package:hgbh_app/widget/pull/nested/gsy_nested_pull_load_widget.dart';
+import 'package:hgbh_app/common/style/style.dart';
+import 'package:hgbh_app/widget/pull/nested/nested_pull_load_widget.dart';
 import 'package:hgbh_app/widget/state/base_person_state.dart';
 import 'package:redux/redux.dart';
 
@@ -18,9 +18,9 @@ class MyPage extends StatefulWidget {
 class _MyPageState extends BasePersonState<MyPage> {
   String beStaredCount = '---';
 
-  Color notifyColor = const Color(GSYColors.subTextColor);
+  Color notifyColor = const Color(HGColors.subTextColor);
 
-  Store<GSYState> _getStore() {
+  Store<HGState> _getStore() {
     if (context == null) {
       return null;
     }
@@ -48,9 +48,9 @@ class _MyPageState extends BasePersonState<MyPage> {
     UserDao.getNotifyDao(false, false, 0).then((res) {
       Color newColor;
       if (res != null && res.result && res.data.length > 0) {
-        newColor = Color(GSYColors.actionBlue);
+        newColor = Color(HGColors.actionBlue);
       } else {
-        newColor = Color(GSYColors.subLightTextColor);
+        newColor = Color(HGColors.subLightTextColor);
       }
       if (isShow) {
         setState(() {
@@ -123,9 +123,9 @@ class _MyPageState extends BasePersonState<MyPage> {
   @override
   Widget build(BuildContext context) {
     super.build(context); // See AutomaticKeepAliveClientMixin.
-    return new StoreBuilder<GSYState>(
+    return new StoreBuilder<HGState>(
       builder: (context, store) {
-        return GSYNestedPullLoadWidget(
+        return HGNestedPullLoadWidget(
           pullLoadWidgetControl,
           (BuildContext context, int index) => renderItem(
                   index, store.state.userInfo, beStaredCount, notifyColor, () {

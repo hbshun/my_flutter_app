@@ -4,9 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/localization/default_localizations.dart';
 
-class GSYLocalizationsDelegate extends LocalizationsDelegate<GSYLocalizations> {
+class HGLocalizationsDelegate extends LocalizationsDelegate<HGLocalizations> {
 
-  GSYLocalizationsDelegate();
+  HGLocalizationsDelegate();
 
   @override
   bool isSupported(Locale locale) {
@@ -16,15 +16,15 @@ class GSYLocalizationsDelegate extends LocalizationsDelegate<GSYLocalizations> {
 
   ///根据locale，创建一个对象用于提供当前locale下的文本显示
   @override
-  Future<GSYLocalizations> load(Locale locale) {
-    return new SynchronousFuture<GSYLocalizations>(new GSYLocalizations(locale));
+  Future<HGLocalizations> load(Locale locale) {
+    return new SynchronousFuture<HGLocalizations>(new HGLocalizations(locale));
   }
 
   @override
-  bool shouldReload(LocalizationsDelegate<GSYLocalizations> old) {
+  bool shouldReload(LocalizationsDelegate<HGLocalizations> old) {
     return false;
   }
 
   ///全局静态的代理
-  static GSYLocalizationsDelegate delegate = new GSYLocalizationsDelegate();
+  static HGLocalizationsDelegate delegate = new HGLocalizationsDelegate();
 }

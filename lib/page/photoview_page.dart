@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
-import 'package:hgbh_app/widget/gsy_common_option_widget.dart';
-import 'package:hgbh_app/widget/gsy_title_bar.dart';
+import 'package:hgbh_app/widget/common_option_widget.dart';
+import 'package:hgbh_app/widget/title_bar.dart';
 import 'package:photo_view/photo_view.dart';
 
 
@@ -36,16 +36,16 @@ class PhotoViewPage extends StatelessWidget {
           },
         ),
         appBar: new AppBar(
-          title: GSYTitleBar("", rightWidget: new GSYCommonOptionWidget(optionControl)),
+          title: HGTitleBar("", rightWidget: new HGCommonOptionWidget(optionControl)),
         ),
         body: new Container(
           color: Colors.black,
           child: new PhotoView(
-            imageProvider: new NetworkImage(url ?? GSYICons.DEFAULT_REMOTE_PIC),
+            imageProvider: new NetworkImage(url ?? HGICons.DEFAULT_REMOTE_PIC),
             loadingChild: Container(
               child: new Stack(
                 children: <Widget>[
-                  new Center(child: new Image.asset(GSYICons.DEFAULT_IMAGE, height: 180.0, width: 180.0)),
+                  new Center(child: new Image.asset(HGICons.DEFAULT_IMAGE, height: 180.0, width: 180.0)),
                   new Center(child: new SpinKitFoldingCube(color: Colors.white30, size: 60.0)),
                 ],
               ),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/model/Repository.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
-import 'package:hgbh_app/widget/gsy_icon_text.dart';
-import 'package:hgbh_app/widget/gsy_user_icon_widget.dart';
+import 'package:hgbh_app/widget/card_item.dart';
+import 'package:hgbh_app/widget/icon_text.dart';
+import 'package:hgbh_app/widget/user_icon_widget.dart';
 
 class ReposItem extends StatelessWidget {
   final ReposViewModel reposViewModel;
@@ -19,11 +19,11 @@ class ReposItem extends StatelessWidget {
     return new Expanded(
       flex: flex,
       child: new Center(
-        child: new GSYIConText(
+        child: new HGIConText(
           icon,
           text,
-          GSYConstant.smallSubText,
-          Color(GSYColors.subTextColor),
+          HGConstant.smallSubText,
+          Color(HGColors.subTextColor),
           15.0,
           padding: 5.0,
           textWidth: flex == 4
@@ -37,7 +37,7 @@ class ReposItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      child: new GSYCardItem(
+      child: new HGCardItem(
           child: new FlatButton(
               onPressed: onPressed,
               child: new Padding(
@@ -50,7 +50,7 @@ class ReposItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         ///头像
-                        new GSYUserIconWidget(
+                        new HGUserIconWidget(
                             padding: const EdgeInsets.only(
                                 top: 0.0, right: 5.0, left: 0.0),
                             width: 40.0,
@@ -66,14 +66,14 @@ class ReposItem extends StatelessWidget {
                             children: <Widget>[
                               ///仓库名
                               new Text(reposViewModel.repositoryName ?? "",
-                                  style: GSYConstant.normalTextBold),
+                                  style: HGConstant.normalTextBold),
 
                               ///用户名
-                              new GSYIConText(
-                                GSYICons.REPOS_ITEM_USER,
+                              new HGIConText(
+                                HGICons.REPOS_ITEM_USER,
                                 reposViewModel.ownerName,
-                                GSYConstant.smallSubLightText,
-                                Color(GSYColors.subLightTextColor),
+                                HGConstant.smallSubLightText,
+                                Color(HGColors.subLightTextColor),
                                 10.0,
                                 padding: 3.0,
                               ),
@@ -83,7 +83,7 @@ class ReposItem extends StatelessWidget {
 
                         ///仓库语言
                         new Text(reposViewModel.repositoryType,
-                            style: GSYConstant.smallSubText),
+                            style: HGConstant.smallSubText),
                       ],
                     ),
                     new Container(
@@ -91,7 +91,7 @@ class ReposItem extends StatelessWidget {
                         ///仓库描述
                         child: new Text(
                           reposViewModel.repositoryDes,
-                          style: GSYConstant.smallSubText,
+                          style: HGConstant.smallSubText,
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -103,17 +103,17 @@ class ReposItem extends StatelessWidget {
                     new Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        _getBottomItem(context, GSYICons.REPOS_ITEM_STAR,
+                        _getBottomItem(context, HGICons.REPOS_ITEM_STAR,
                             reposViewModel.repositoryStar),
                         new SizedBox(
                           width: 5,
                         ),
-                        _getBottomItem(context, GSYICons.REPOS_ITEM_FORK,
+                        _getBottomItem(context, HGICons.REPOS_ITEM_FORK,
                             reposViewModel.repositoryFork),
                         new SizedBox(
                           width: 5,
                         ),
-                        _getBottomItem(context, GSYICons.REPOS_ITEM_ISSUE,
+                        _getBottomItem(context, HGICons.REPOS_ITEM_ISSUE,
                             reposViewModel.repositoryWatch,
                             flex: 4),
                       ],

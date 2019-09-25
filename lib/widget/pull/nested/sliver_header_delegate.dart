@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 ///动态头部处理
-class GSYSliverHeaderDelegate extends SliverPersistentHeaderDelegate {
-  GSYSliverHeaderDelegate(
+class HGSliverHeaderDelegate extends SliverPersistentHeaderDelegate {
+  HGSliverHeaderDelegate(
       {@required this.minHeight,
       @required this.maxHeight,
       @required this.snapConfig,
@@ -37,7 +37,7 @@ class GSYSliverHeaderDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  bool shouldRebuild(GSYSliverHeaderDelegate oldDelegate) {
+  bool shouldRebuild(HGSliverHeaderDelegate oldDelegate) {
     return true;
   }
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/model/User.dart';
 import 'package:hgbh_app/common/model/UserOrg.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
+import 'package:hgbh_app/common/style/style.dart';
+import 'package:hgbh_app/widget/card_item.dart';
 
 class UserItem extends StatelessWidget {
   final UserItemViewModel userItemViewModel;
@@ -19,7 +19,7 @@ class UserItem extends StatelessWidget {
         padding: EdgeInsets.only(top: 0.0, left: 0.0, bottom: 0.0, right: 10.0),
         icon: new ClipOval(
           child: new FadeInImage.assetNetwork(
-            placeholder: GSYICons.DEFAULT_USER_ICON,
+            placeholder: HGICons.DEFAULT_USER_ICON,
             //预览图
             fit: BoxFit.fitWidth,
             image: userItemViewModel.userPic,
@@ -29,7 +29,7 @@ class UserItem extends StatelessWidget {
         ),
         onPressed: null);
     return new Container(
-        child: new GSYCardItem(
+        child: new HGCardItem(
       child: new FlatButton(
         onPressed: onPressed,
         child: new Padding(
@@ -37,7 +37,7 @@ class UserItem extends StatelessWidget {
           child: new Row(
             children: <Widget>[
               userImage,
-              new Expanded(child: new Text(userItemViewModel.userName, style: GSYConstant.smallTextBold)),
+              new Expanded(child: new Text(userItemViewModel.userName, style: HGConstant.smallTextBold)),
             ],
           ),
         ),

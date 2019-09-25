@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/model/Issue.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
-import 'package:hgbh_app/widget/gsy_icon_text.dart';
-import 'package:hgbh_app/widget/gsy_markdown_widget.dart';
-import 'package:hgbh_app/widget/gsy_user_icon_widget.dart';
+import 'package:hgbh_app/widget/card_item.dart';
+import 'package:hgbh_app/widget/icon_text.dart';
+import 'package:hgbh_app/widget/markdown_widget.dart';
+import 'package:hgbh_app/widget/user_icon_widget.dart';
 
 class IssueItem extends StatelessWidget {
   final IssueItemViewModel issueItemViewModel;
@@ -33,12 +33,12 @@ class IssueItem extends StatelessWidget {
         : new Row(
             children: <Widget>[
               ///issue 关闭打开状态
-              new GSYIConText(
-                GSYICons.ISSUE_ITEM_ISSUE,
+              new HGIConText(
+                HGICons.ISSUE_ITEM_ISSUE,
                 issueItemViewModel.state,
                 TextStyle(
                   color: issueStateColor,
-                  fontSize: GSYConstant.smallTextSize,
+                  fontSize: HGConstant.smallTextSize,
                 ),
                 issueStateColor,
                 15.0,
@@ -48,15 +48,15 @@ class IssueItem extends StatelessWidget {
 
               ///issue标号
               new Expanded(
-                child: new Text(issueItemViewModel.issueTag, style: GSYConstant.smallSubText),
+                child: new Text(issueItemViewModel.issueTag, style: HGConstant.smallSubText),
               ),
 
               ///评论数
-              new GSYIConText(
-                GSYICons.ISSUE_ITEM_COMMENT,
+              new HGIConText(
+                HGICons.ISSUE_ITEM_COMMENT,
                 issueItemViewModel.commentCount,
-                GSYConstant.smallSubText,
-                Color(GSYColors.subTextColor),
+                HGConstant.smallSubText,
+                Color(HGColors.subTextColor),
                 15.0,
                 padding: 2.0,
               ),
@@ -70,18 +70,18 @@ class IssueItem extends StatelessWidget {
         ? new Container(
             child: new Text(
               issueItemViewModel.issueComment,
-              style: GSYConstant.smallSubText,
+              style: HGConstant.smallSubText,
               maxLines: limitComment ? 2 : 1000,
             ),
             margin: new EdgeInsets.only(top: 6.0, bottom: 2.0),
             alignment: Alignment.topLeft,
           )
-        : GSYMarkdownWidget(markdownData: issueItemViewModel.issueComment);
+        : HGMarkdownWidget(markdownData: issueItemViewModel.issueComment);
   }
 
   @override
   Widget build(BuildContext context) {
-    return new GSYCardItem(
+    return new HGCardItem(
       child: new InkWell(
         onTap: onPressed,
         onLongPress: onLongPress,
@@ -89,7 +89,7 @@ class IssueItem extends StatelessWidget {
           padding: new EdgeInsets.only(left: 5.0, top: 5.0, right: 10.0, bottom: 8.0),
           child: new Row(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
             ///头像
-            new GSYUserIconWidget(
+            new HGUserIconWidget(
                 width: 30.0,
                 height: 30.0,
                 image: issueItemViewModel.actionUserPic,
@@ -103,10 +103,10 @@ class IssueItem extends StatelessWidget {
                   new Row(
                     children: <Widget>[
                       ///用户名
-                      new Expanded(child: new Text(issueItemViewModel.actionUser, style: GSYConstant.smallTextBold)),
+                      new Expanded(child: new Text(issueItemViewModel.actionUser, style: HGConstant.smallTextBold)),
                       new Text(
                         issueItemViewModel.actionTime,
-                        style: GSYConstant.smallSubText,
+                        style: HGConstant.smallSubText,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),

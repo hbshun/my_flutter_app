@@ -4,12 +4,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hgbh_app/common/localization/default_localizations.dart';
 import 'package:hgbh_app/common/model/User.dart';
 import 'package:hgbh_app/common/model/UserOrg.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
-import 'package:hgbh_app/widget/gsy_icon_text.dart';
-import 'package:hgbh_app/widget/gsy_user_icon_widget.dart';
+import 'package:hgbh_app/widget/card_item.dart';
+import 'package:hgbh_app/widget/icon_text.dart';
+import 'package:hgbh_app/widget/user_icon_widget.dart';
 
 class UserHeaderItem extends StatelessWidget {
   final User userInfo;
@@ -38,7 +38,7 @@ class UserHeaderItem extends StatelessWidget {
         constraints: const BoxConstraints(minWidth: 0.0, minHeight: 0.0),
         child: new ClipOval(
           child: new Icon(
-            GSYICons.USER_NOTIFY,
+            HGICons.USER_NOTIFY,
             color: color,
             size: 18.0,
           ),
@@ -58,11 +58,11 @@ class UserHeaderItem extends StatelessWidget {
     List<Widget> list = new List();
 
     renderOrgsItem(UserOrg orgs) {
-      return GSYUserIconWidget(
+      return HGUserIconWidget(
           padding: const EdgeInsets.only(right: 5.0, left: 5.0),
           width: 30.0,
           height: 30.0,
-          image: orgs.avatarUrl ?? GSYICons.DEFAULT_REMOTE_PIC,
+          image: orgs.avatarUrl ?? HGICons.DEFAULT_REMOTE_PIC,
           onPressed: () {
             NavigatorUtils.goPerson(context, orgs.login);
           });
@@ -71,7 +71,7 @@ class UserHeaderItem extends StatelessWidget {
     int length = orgList.length > 3 ? 3 : orgList.length;
 
     list.add(new Text(CommonUtils.getLocale(context).user_orgs_title + ":",
-        style: GSYConstant.smallSubLightText));
+        style: HGConstant.smallSubLightText));
 
     for (int i = 0; i < length; i++) {
       list.add(renderOrgsItem(orgList[i]));
@@ -93,7 +93,7 @@ class UserHeaderItem extends StatelessWidget {
           constraints: const BoxConstraints(minWidth: 0.0, minHeight: 0.0),
           child: Icon(
             Icons.more_horiz,
-            color: Color(GSYColors.white),
+            color: Color(HGColors.white),
             size: 18.0,
           )));
     }
@@ -102,7 +102,7 @@ class UserHeaderItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new GSYCardItem(
+    return new HGCardItem(
         color: themeColor,
         elevation: 0,
         margin: EdgeInsets.all(0.0),
@@ -134,11 +134,11 @@ class UserHeaderItem extends StatelessWidget {
                           const BoxConstraints(minWidth: 0.0, minHeight: 0.0),
                       child: new ClipOval(
                         child: new FadeInImage.assetNetwork(
-                          placeholder: GSYICons.DEFAULT_USER_ICON,
+                          placeholder: HGICons.DEFAULT_USER_ICON,
                           //预览图
                           fit: BoxFit.fitWidth,
                           image: userInfo.avatar_url ??
-                              GSYICons.DEFAULT_REMOTE_PIC,
+                              HGICons.DEFAULT_REMOTE_PIC,
                           width: 80.0,
                           height: 80.0,
                         ),
@@ -152,31 +152,31 @@ class UserHeaderItem extends StatelessWidget {
                           children: <Widget>[
                             ///用户名
                             new Text(userInfo.login ?? "",
-                                style: GSYConstant.largeTextWhiteBold),
+                                style: HGConstant.largeTextWhiteBold),
                             _getNotifyIcon(context, notifyColor),
                           ],
                         ),
                         new Text(userInfo.name == null ? "" : userInfo.name,
-                            style: GSYConstant.smallSubLightText),
+                            style: HGConstant.smallSubLightText),
 
                         ///用户组织
-                        new GSYIConText(
-                          GSYICons.USER_ITEM_COMPANY,
+                        new HGIConText(
+                          HGICons.USER_ITEM_COMPANY,
                           userInfo.company ??
                               CommonUtils.getLocale(context).nothing_now,
-                          GSYConstant.smallSubLightText,
-                          Color(GSYColors.subLightTextColor),
+                          HGConstant.smallSubLightText,
+                          Color(HGColors.subLightTextColor),
                           10.0,
                           padding: 3.0,
                         ),
 
                         ///用户位置
-                        new GSYIConText(
-                          GSYICons.USER_ITEM_LOCATION,
+                        new HGIConText(
+                          HGICons.USER_ITEM_LOCATION,
                           userInfo.location ??
                               CommonUtils.getLocale(context).nothing_now,
-                          GSYConstant.smallSubLightText,
-                          Color(GSYColors.subLightTextColor),
+                          HGConstant.smallSubLightText,
+                          Color(HGColors.subLightTextColor),
                           10.0,
                           padding: 3.0,
                         ),
@@ -198,14 +198,14 @@ class UserHeaderItem extends StatelessWidget {
                     padding: const EdgeInsets.all(0.0),
                     constraints:
                         const BoxConstraints(minWidth: 0.0, minHeight: 0.0),
-                    child: new GSYIConText(
-                      GSYICons.USER_ITEM_LINK,
+                    child: new HGIConText(
+                      HGICons.USER_ITEM_LINK,
                       userInfo.blog ??
                           CommonUtils.getLocale(context).nothing_now,
                       (userInfo.blog == null)
-                          ? GSYConstant.smallSubLightText
-                          : GSYConstant.smallActionLightText,
-                      Color(GSYColors.subLightTextColor),
+                          ? HGConstant.smallSubLightText
+                          : HGConstant.smallActionLightText,
+                      Color(HGColors.subLightTextColor),
                       10.0,
                       padding: 3.0,
                       textWidth: MediaQuery.of(context).size.width - 50,
@@ -221,7 +221,7 @@ class UserHeaderItem extends StatelessWidget {
               new Container(
                   child: new Text(
                     userInfo.bio == null ? "" : userInfo.bio,
-                    style: GSYConstant.smallSubLightText,
+                    style: HGConstant.smallSubLightText,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -232,14 +232,14 @@ class UserHeaderItem extends StatelessWidget {
                   child: new Text(
                     CommonUtils.getLocale(context).user_create_at +
                         CommonUtils.getDateStr(userInfo.created_at),
-                    style: GSYConstant.smallSubLightText,
+                    style: HGConstant.smallSubLightText,
                     overflow: TextOverflow.ellipsis,
                   ),
                   margin: new EdgeInsets.only(top: 6.0, bottom: 2.0),
                   alignment: Alignment.topLeft),
               new Padding(padding: EdgeInsets.only(bottom: 5.0)),
               /*new Divider(
-                color: Color(GSYColors.subLightTextColor),
+                color: Color(HGColors.subLightTextColor),
               ),*/
             ],
           ),
@@ -260,11 +260,11 @@ class UserHeaderBottom extends StatelessWidget {
   _getBottomItem(String title, var value, onPressed) {
     String data = value == null ? "" : value.toString();
     TextStyle valueStyle = (value != null && value.toString().length > 6)
-        ? GSYConstant.minText
-        : GSYConstant.smallSubLightText;
+        ? HGConstant.minText
+        : HGConstant.smallSubLightText;
     TextStyle titleStyle = (title != null && title.toString().length > 6)
-        ? GSYConstant.minText
-        : GSYConstant.smallSubLightText;
+        ? HGConstant.minText
+        : HGConstant.smallSubLightText;
     return new Expanded(
       child: new Center(
           child: new RawMaterialButton(
@@ -288,7 +288,7 @@ class UserHeaderBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ///用户底部状态
-    return new GSYCardItem(
+    return new HGCardItem(
       color: Theme.of(context).primaryColor,
       margin: EdgeInsets.all(0.0),
       shape: new RoundedRectangleBorder(
@@ -300,7 +300,7 @@ class UserHeaderBottom extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             _getBottomItem(
-              GSYLocalizations.of(context).currentLocalized.user_tab_repos,
+              HGLocalizations.of(context).currentLocalized.user_tab_repos,
               userInfo.public_repos,
               () {
                 NavigatorUtils.gotoCommonList(
@@ -312,7 +312,7 @@ class UserHeaderBottom extends StatelessWidget {
                 width: 0.3,
                 height: 40.0,
                 alignment: Alignment.center,
-                color: Color(GSYColors.subLightTextColor)),
+                color: Color(HGColors.subLightTextColor)),
             _getBottomItem(
               CommonUtils.getLocale(context).user_tab_fans,
               userInfo.followers,
@@ -326,7 +326,7 @@ class UserHeaderBottom extends StatelessWidget {
                 width: 0.3,
                 height: 40.0,
                 alignment: Alignment.center,
-                color: Color(GSYColors.subLightTextColor)),
+                color: Color(HGColors.subLightTextColor)),
             _getBottomItem(
               CommonUtils.getLocale(context).user_tab_focus,
               userInfo.following,
@@ -340,7 +340,7 @@ class UserHeaderBottom extends StatelessWidget {
                 width: 0.3,
                 height: 40.0,
                 alignment: Alignment.center,
-                color: Color(GSYColors.subLightTextColor)),
+                color: Color(HGColors.subLightTextColor)),
             _getBottomItem(
               CommonUtils.getLocale(context).user_tab_star,
               userInfo.starred,
@@ -354,7 +354,7 @@ class UserHeaderBottom extends StatelessWidget {
                 width: 0.3,
                 height: 40.0,
                 alignment: Alignment.center,
-                color: Color(GSYColors.subLightTextColor)),
+                color: Color(HGColors.subLightTextColor)),
             _getBottomItem(
               CommonUtils.getLocale(context).user_tab_honor,
               beStaredCount,
@@ -386,7 +386,7 @@ class UserHeaderChart extends StatelessWidget {
         ? new Card(
             margin:
                 EdgeInsets.only(top: 0.0, left: 10.0, right: 10.0, bottom: 0.0),
-            color: Color(GSYColors.white),
+            color: Color(HGColors.white),
             child: new SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: new Container(
@@ -430,7 +430,7 @@ class UserHeaderChart extends StatelessWidget {
                 (userInfo.type == "Organization")
                     ? CommonUtils.getLocale(context).user_dynamic_group
                     : CommonUtils.getLocale(context).user_dynamic_title,
-                style: GSYConstant.normalTextBold,
+                style: HGConstant.normalTextBold,
                 overflow: TextOverflow.ellipsis,
               ),
               margin: new EdgeInsets.only(top: 15.0, bottom: 15.0, left: 12.0),

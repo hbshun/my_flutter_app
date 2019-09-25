@@ -1,33 +1,33 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:hgbh_app/common/style/gsy_string_base.dart';
-import 'package:hgbh_app/common/style/gsy_string_en.dart';
-import 'package:hgbh_app/common/style/gsy_string_zh.dart';
+import './locales/base.dart';
+import './locales/en.dart';
+import './locales/zh.dart';
 
 ///自定义多语言实现
-class GSYLocalizations {
+class HGLocalizations {
   final Locale locale;
 
-  GSYLocalizations(this.locale);
+  HGLocalizations(this.locale);
 
   ///根据不同 locale.languageCode 加载不同语言对应
-  ///GSYStringEn和GSYStringZh都继承了GSYStringBase
-  static Map<String, GSYStringBase> _localizedValues = {
-    'en': new GSYStringEn(),
-    'zh': new GSYStringZh(),
+  ///HGStringEn和HGStringZh都继承了HGStringBase
+  static Map<String, HGStringBase> _localizedValues = {
+    'en': new HGStringEn(),
+    'zh': new HGStringZh(),
   };
 
-  GSYStringBase get currentLocalized {
+  HGStringBase get currentLocalized {
     if(_localizedValues.containsKey(locale.languageCode)) {
       return _localizedValues[locale.languageCode];
     }
     return _localizedValues["en"];
   }
 
-  ///通过 Localizations 加载当前的 GSYLocalizations
-  ///获取对应的 GSYStringBase
-  static GSYLocalizations of(BuildContext context) {
-    return Localizations.of(context, GSYLocalizations);
+  ///通过 Localizations 加载当前的 HGLocalizations
+  ///获取对应的 HGStringBase
+  static HGLocalizations of(BuildContext context) {
+    return Localizations.of(context, HGLocalizations);
   }
 }

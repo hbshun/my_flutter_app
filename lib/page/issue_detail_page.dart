@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hgbh_app/common/dao/issue_dao.dart';
 import 'package:hgbh_app/common/model/Issue.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_common_option_widget.dart';
-import 'package:hgbh_app/widget/gsy_flex_button.dart';
-import 'package:hgbh_app/widget/state/gsy_list_state.dart';
-import 'package:hgbh_app/widget/pull/gsy_pull_load_widget.dart';
-import 'package:hgbh_app/widget/gsy_title_bar.dart';
+import 'package:hgbh_app/widget/common_option_widget.dart';
+import 'package:hgbh_app/widget/flex_button.dart';
+import 'package:hgbh_app/widget/state/list_state.dart';
+import 'package:hgbh_app/widget/pull/pull_load_widget.dart';
+import 'package:hgbh_app/widget/title_bar.dart';
 import 'package:hgbh_app/widget/issue_header_item.dart';
 import 'package:hgbh_app/widget/issue_item.dart';
 
@@ -35,7 +35,7 @@ class IssueDetailPage extends StatefulWidget {
 class _IssueDetailPageState extends State<IssueDetailPage>
     with
         AutomaticKeepAliveClientMixin<IssueDetailPage>,
-        GSYListState<IssueDetailPage> {
+        HGListState<IssueDetailPage> {
   int selectIndex = 0;
 
   ///头部信息数据是否加载成功，成功了就可以显示底部状态
@@ -65,39 +65,39 @@ class _IssueDetailPageState extends State<IssueDetailPage>
       hideBottom: true,
       limitComment: false,
       onPressed: () {
-        NavigatorUtils.showGSYDialog(
+        NavigatorUtils.showHGDialog(
             context: context,
             builder: (BuildContext context) {
               return new Center(
                 child: new Container(
                   decoration: new BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                      color: Color(GSYColors.white),
+                      color: Color(HGColors.white),
                       border: new Border.all(
-                          color: Color(GSYColors.subTextColor), width: 0.3)),
+                          color: Color(HGColors.subTextColor), width: 0.3)),
                   margin: EdgeInsets.all(10.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      new GSYFlexButton(
-                        color: Color(GSYColors.white),
+                      new HGFlexButton(
+                        color: Color(HGColors.white),
                         text: CommonUtils.getLocale(context)
                             .issue_edit_issue_edit_commit,
                         onPress: () {
                           _editCommit(issue.id.toString(), issue.body);
                         },
                       ),
-                      new GSYFlexButton(
-                        color: Color(GSYColors.white),
+                      new HGFlexButton(
+                        color: Color(HGColors.white),
                         text: CommonUtils.getLocale(context)
                             .issue_edit_issue_delete_commit,
                         onPress: () {
                           _deleteCommit(issue.id.toString());
                         },
                       ),
-                      new GSYFlexButton(
-                        color: Color(GSYColors.white),
+                      new HGFlexButton(
+                        color: Color(HGColors.white),
                         text: CommonUtils.getLocale(context)
                             .issue_edit_issue_copy_commit,
                         onPress: () {
@@ -287,23 +287,23 @@ class _IssueDetailPageState extends State<IssueDetailPage>
                 _replyIssue();
               },
               child: new Text(CommonUtils.getLocale(context).issue_reply,
-                  style: GSYConstant.smallText),
+                  style: HGConstant.smallText),
             ),
             new Container(
                 width: 0.3,
                 height: 30.0,
-                color: Color(GSYColors.subLightTextColor)),
+                color: Color(HGColors.subLightTextColor)),
             new FlatButton(
               onPressed: () {
                 _editIssue();
               },
               child: new Text(CommonUtils.getLocale(context).issue_edit,
-                  style: GSYConstant.smallText),
+                  style: HGConstant.smallText),
             ),
             new Container(
                 width: 0.3,
                 height: 30.0,
-                color: Color(GSYColors.subLightTextColor)),
+                color: Color(HGColors.subLightTextColor)),
             new FlatButton(
                 onPressed: () {
                   CommonUtils.showLoadingDialog(context);
@@ -321,11 +321,11 @@ class _IssueDetailPageState extends State<IssueDetailPage>
                     (issueHeaderViewModel.state == 'closed')
                         ? CommonUtils.getLocale(context).issue_open
                         : CommonUtils.getLocale(context).issue_close,
-                    style: GSYConstant.smallText)),
+                    style: HGConstant.smallText)),
             new Container(
                 width: 0.3,
                 height: 30.0,
-                color: Color(GSYColors.subLightTextColor)),
+                color: Color(HGColors.subLightTextColor)),
             new FlatButton(
                 onPressed: () {
                   CommonUtils.showLoadingDialog(context);
@@ -340,7 +340,7 @@ class _IssueDetailPageState extends State<IssueDetailPage>
                     (issueHeaderViewModel.locked)
                         ? CommonUtils.getLocale(context).issue_unlock
                         : CommonUtils.getLocale(context).issue_lock,
-                    style: GSYConstant.smallText)),
+                    style: HGConstant.smallText)),
           ];
     return bottomWidget;
   }
@@ -369,22 +369,22 @@ class _IssueDetailPageState extends State<IssueDetailPage>
     super.build(context); // See AutomaticKeepAliveClientMixin.
     Widget widgetContent = (widget.needHomeIcon)
         ? null
-        : new GSYCommonOptionWidget(titleOptionControl);
+        : new HGCommonOptionWidget(titleOptionControl);
     return new Scaffold(
       persistentFooterButtons: _getBottomWidget(),
       appBar: new AppBar(
-        title: GSYTitleBar(
+        title: HGTitleBar(
           widget.reposName,
           rightWidget: widgetContent,
           needRightLocalIcon: widget.needHomeIcon,
-          iconData: GSYICons.HOME,
+          iconData: HGICons.HOME,
           onPressed: () {
             NavigatorUtils.goReposDetail(
                 context, widget.userName, widget.reposName);
           },
         ),
       ),
-      body: GSYPullLoadWidget(
+      body: HGPullLoadWidget(
         pullLoadWidgetControl,
         (BuildContext context, int index) => _renderEventItem(index),
         handleRefresh,

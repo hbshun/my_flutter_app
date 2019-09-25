@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hgbh_app/widget/gsy_common_option_widget.dart';
+import 'package:hgbh_app/widget/common_option_widget.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class GSYWebView extends StatelessWidget {
+class HGWebView extends StatelessWidget {
   final String url;
   final String title;
   final OptionControl optionControl = new OptionControl();
 
-  GSYWebView(this.url, this.title);
+  HGWebView(this.url, this.title);
 
   _renderTitle() {
     if (url == null || url.length == 0) {
@@ -24,7 +24,7 @@ class GSYWebView extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
       )),
-      GSYCommonOptionWidget(optionControl),
+      HGCommonOptionWidget(optionControl),
     ]);
   }
 

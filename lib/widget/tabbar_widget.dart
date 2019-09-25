@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 ///支持顶部和顶部的TabBar控件
 ///配合AutomaticKeepAliveClientMixin可以keep住
-class GSYTabBarWidget extends StatefulWidget {
+class HGTabBarWidget extends StatefulWidget {
   ///底部模式type
   static const int BOTTOM_TAB = 1;
 
@@ -35,7 +35,7 @@ class GSYTabBarWidget extends StatefulWidget {
 
   final ValueChanged<int> onPageChanged;
 
-  GSYTabBarWidget({
+  HGTabBarWidget({
     Key key,
     this.type,
     this.tabItems,
@@ -53,7 +53,7 @@ class GSYTabBarWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _GSYTabBarState createState() => new _GSYTabBarState(
+  _HGTabBarState createState() => new _HGTabBarState(
         type,
         tabViews,
         indicatorColor,
@@ -64,7 +64,7 @@ class GSYTabBarWidget extends StatefulWidget {
       );
 }
 
-class _GSYTabBarState extends State<GSYTabBarWidget>
+class _HGTabBarState extends State<HGTabBarWidget>
     with SingleTickerProviderStateMixin {
   final int _type;
 
@@ -82,7 +82,7 @@ class _GSYTabBarState extends State<GSYTabBarWidget>
 
   final ValueChanged<int> _onPageChanged;
 
-  _GSYTabBarState(
+  _HGTabBarState(
     this._type,
     this._tabViews,
     this._indicatorColor,
@@ -110,7 +110,7 @@ class _GSYTabBarState extends State<GSYTabBarWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (this._type == GSYTabBarWidget.TOP_TAB) {
+    if (this._type == HGTabBarWidget.TOP_TAB) {
       ///顶部tab bar
       return new Scaffold(
         resizeToAvoidBottomPadding: widget.resizeToAvoidBottomPadding,
@@ -167,7 +167,8 @@ class _GSYTabBarState extends State<GSYTabBarWidget>
               //TabBar导航标签，底部导航放到Scaffold的bottomNavigationBar中
               controller: _tabController, //配置控制器
               tabs: widget.tabItems,
-              indicatorColor: _indicatorColor,
+              // indicator: null,
+              indicatorColor: Color.fromARGB(0, 255, 0, 0), // TODO 下划线不见了？
               onTap: (index) {
                 _onPageChanged?.call(index);
                 _pageController

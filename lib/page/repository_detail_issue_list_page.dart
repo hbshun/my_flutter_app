@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hgbh_app/common/dao/issue_dao.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/pull/nested/gsy_nested_pull_load_widget.dart';
-import 'package:hgbh_app/widget/pull/nested/gsy_sliver_header_delegate.dart';
+import 'package:hgbh_app/widget/pull/nested/nested_pull_load_widget.dart';
+import 'package:hgbh_app/widget/pull/nested/sliver_header_delegate.dart';
 import 'package:hgbh_app/widget/pull/nested/nested_refresh.dart';
-import 'package:hgbh_app/widget/state/gsy_list_state.dart';
-import 'package:hgbh_app/widget/gsy_search_input_widget.dart';
+import 'package:hgbh_app/widget/state/list_state.dart';
+import 'package:hgbh_app/widget/search_input_widget.dart';
 import 'package:hgbh_app/widget/issue_item.dart';
-import 'package:hgbh_app/widget/gsy_select_item_widget.dart';
+import 'package:hgbh_app/widget/select_item_widget.dart';
 
 class RepositoryDetailIssuePage extends StatefulWidget {
   final String userName;
@@ -29,7 +29,7 @@ class RepositoryDetailIssuePage extends StatefulWidget {
 class RepositoryDetailIssuePageState extends State<RepositoryDetailIssuePage>
     with
         AutomaticKeepAliveClientMixin<RepositoryDetailIssuePage>,
-        GSYListState<RepositoryDetailIssuePage>,
+        HGListState<RepositoryDetailIssuePage>,
         SingleTickerProviderStateMixin {
   /// NestedScrollView 的刷新状态 GlobalKey ，方便主动刷新使用
   final GlobalKey<NestedScrollViewRefreshIndicatorState> refreshIKey =
@@ -127,10 +127,10 @@ class RepositoryDetailIssuePageState extends State<RepositoryDetailIssuePage>
   Widget build(BuildContext context) {
     super.build(context); // See AutomaticKeepAliveClientMixin.
     return new Scaffold(
-      backgroundColor: Color(GSYColors.mainBackgroundColor),
+      backgroundColor: Color(HGColors.mainBackgroundColor),
       appBar: new AppBar(
         leading: new Container(),
-        flexibleSpace: GSYSearchInputWidget((value) {
+        flexibleSpace: HGSearchInputWidget((value) {
           this.searchText = value;
         }, (value) {
           _resolveSelectIndex();
@@ -138,11 +138,11 @@ class RepositoryDetailIssuePageState extends State<RepositoryDetailIssuePage>
           _resolveSelectIndex();
         }),
         elevation: 0.0,
-        backgroundColor: Color(GSYColors.mainBackgroundColor),
+        backgroundColor: Color(HGColors.mainBackgroundColor),
       ),
 
       ///支持嵌套滚动
-      body: GSYNestedPullLoadWidget(
+      body: HGNestedPullLoadWidget(
         pullLoadWidgetControl,
         (BuildContext context, int index) => _renderIssueItem(index),
         handleRefresh,
@@ -165,7 +165,7 @@ class RepositoryDetailIssuePageState extends State<RepositoryDetailIssuePage>
         pinned: true,
 
         /// SliverPersistentHeaderDelegate 的实现
-        delegate: GSYSliverHeaderDelegate(
+        delegate: HGSliverHeaderDelegate(
             maxHeight: height,
             minHeight: height,
             changeSize: true,
@@ -183,7 +183,7 @@ class RepositoryDetailIssuePageState extends State<RepositoryDetailIssuePage>
                 child: Padding(
                   padding:
                       EdgeInsets.only(top: lr, bottom: 10, left: lr, right: lr),
-                  child: new GSYSelectItemWidget(
+                  child: new HGSelectItemWidget(
                     [
                       CommonUtils.getLocale(context).repos_tab_issue_all,
                       CommonUtils.getLocale(context).repos_tab_issue_open,

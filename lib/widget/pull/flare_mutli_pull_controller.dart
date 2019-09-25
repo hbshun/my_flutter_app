@@ -2,7 +2,7 @@ import 'package:flare_dart/math/mat2d.dart';
 import 'package:flare_flutter/flare.dart';
 import 'package:flare_flutter/flare_controller.dart';
 
-mixin GSYFlarePullMutliController implements FlareController {
+mixin HGFlarePullMutliController implements FlareController {
 
   ActorAnimation _loadingAnimation;
   ActorAnimation _successAnimation;

@@ -3,7 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hgbh_app/common/dao/issue_dao.dart';
 import 'package:hgbh_app/common/dao/repos_dao.dart';
 import 'package:hgbh_app/common/model/Repository.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
 import 'package:hgbh_app/page/repository_detail_issue_list_page.dart';
@@ -11,11 +11,11 @@ import 'package:hgbh_app/page/repository_detail_readme_page.dart';
 import 'package:hgbh_app/page/repository_file_list_page.dart';
 import 'package:hgbh_app/page/repostory_detail_info_page.dart';
 import 'package:hgbh_app/widget/anima/curves_bezier.dart';
-import 'package:hgbh_app/widget/gsy_bottom_action_bar.dart';
-import 'package:hgbh_app/widget/gsy_common_option_widget.dart';
-import 'package:hgbh_app/widget/gsy_icon_text.dart';
-import 'package:hgbh_app/widget/gsy_tabbar_widget.dart';
-import 'package:hgbh_app/widget/gsy_title_bar.dart';
+import 'package:hgbh_app/widget/bottom_action_bar.dart';
+import 'package:hgbh_app/widget/common_option_widget.dart';
+import 'package:hgbh_app/widget/icon_text.dart';
+import 'package:hgbh_app/widget/tabbar_widget.dart';
+import 'package:hgbh_app/widget/title_bar.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class RepositoryDetailPage extends StatefulWidget {
@@ -77,11 +77,11 @@ class _RepositoryDetailPageState extends State<RepositoryDetailPage>
     String watchText = result.data["watch"] ? "UnWatch" : "Watch";
     String starText = result.data["star"] ? "UnStar" : "Star";
     IconData watchIcon = result.data["watch"]
-        ? GSYICons.REPOS_ITEM_WATCHED
-        : GSYICons.REPOS_ITEM_WATCH;
+        ? HGICons.REPOS_ITEM_WATCHED
+        : HGICons.REPOS_ITEM_WATCH;
     IconData starIcon = result.data["star"]
-        ? GSYICons.REPOS_ITEM_STARED
-        : GSYICons.REPOS_ITEM_STAR;
+        ? HGICons.REPOS_ITEM_STARED
+        : HGICons.REPOS_ITEM_STAR;
     BottomStatusModel model = new BottomStatusModel(watchText, starText,
         watchIcon, starIcon, result.data["watch"], result.data["star"]);
     setState(() {
@@ -109,11 +109,11 @@ class _RepositoryDetailPageState extends State<RepositoryDetailPage>
   _renderBottomItem(var text, var icon, var onPressed) {
     return new FlatButton(
         onPressed: onPressed,
-        child: new GSYIConText(
+        child: new HGIConText(
           icon,
           text,
-          GSYConstant.smallText,
-          Color(GSYColors.primaryValue),
+          HGConstant.smallText,
+          Color(HGColors.primaryValue),
           15.0,
           padding: 5.0,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -151,7 +151,7 @@ class _RepositoryDetailPageState extends State<RepositoryDetailPage>
             }),
 
             ///fork
-            _renderBottomItem("fork", GSYICons.REPOS_ITEM_FORK, () {
+            _renderBottomItem("fork", HGICons.REPOS_ITEM_FORK, () {
               CommonUtils.showLoadingDialog(context);
               return ReposDao.createForkDao(widget.userName, widget.reposName)
                   .then((result) {
@@ -176,7 +176,7 @@ class _RepositoryDetailPageState extends State<RepositoryDetailPage>
           padding: EdgeInsets.symmetric(vertical: 10),
           child: new Text(
             item,
-            style: GSYConstant.smallTextWhite,
+            style: HGConstant.smallTextWhite,
             maxLines: 1,
           ));
     }
@@ -192,19 +192,19 @@ class _RepositoryDetailPageState extends State<RepositoryDetailPage>
   _getMoreOtherItem(Repository repository) {
     return [
       ///Release Page
-      new GSYOptionModel(CommonUtils.getLocale(context).repos_option_release,
+      new HGOptionModel(CommonUtils.getLocale(context).repos_option_release,
           CommonUtils.getLocale(context).repos_option_release, (model) {
         String releaseUrl = "";
         String tagUrl = "";
         if (infoListKey == null || infoListKey.currentState == null) {
-          releaseUrl = GSYConstant.app_default_share_url;
-          tagUrl = GSYConstant.app_default_share_url;
+          releaseUrl = HGConstant.app_default_share_url;
+          tagUrl = HGConstant.app_default_share_url;
         } else {
           releaseUrl = repository == null
-              ? GSYConstant.app_default_share_url
+              ? HGConstant.app_default_share_url
               : repository.htmlUrl + "/releases";
           tagUrl = repository == null
-              ? GSYConstant.app_default_share_url
+              ? HGConstant.app_default_share_url
               : repository.htmlUrl + "/tags";
         }
         NavigatorUtils.goReleasePage(
@@ -212,7 +212,7 @@ class _RepositoryDetailPageState extends State<RepositoryDetailPage>
       }),
 
       ///Branch Page
-      new GSYOptionModel(CommonUtils.getLocale(context).repos_option_branch,
+      new HGOptionModel(CommonUtils.getLocale(context).repos_option_branch,
           CommonUtils.getLocale(context).repos_option_branch, (model) {
         if (branchList.length == 0) {
           return;
@@ -298,14 +298,14 @@ class _RepositoryDetailPageState extends State<RepositoryDetailPage>
       child: new ScopedModelDescendant<ReposDetailModel>(
         builder: (context, child, model) {
           Widget widgetContent = (model.repository != null && model.repository.htmlUrl != null)
-              ? new GSYCommonOptionWidget(titleOptionControl,
+              ? new HGCommonOptionWidget(titleOptionControl,
                   otherList: _getMoreOtherItem(model.repository))
               : Container();
 
           print(widgetContent);
           ///绘制顶部 tab 控件
-          return new GSYTabBarWidget(
-            type: GSYTabBarWidget.TOP_TAB,
+          return new HGTabBarWidget(
+            type: HGTabBarWidget.TOP_TAB,
             tabItems: _renderTabItem(),
             resizeToAvoidBottomPadding: false,
             tabViews: [
@@ -323,9 +323,9 @@ class _RepositoryDetailPageState extends State<RepositoryDetailPage>
                   widget.userName, widget.reposName,
                   key: fileListKey),
             ],
-            backgroundColor: GSYColors.primarySwatch,
-            indicatorColor: Color(GSYColors.white),
-            title: new GSYTitleBar(
+            backgroundColor: HGColors.primarySwatch,
+            indicatorColor: Color(HGColors.white),
+            title: new HGTitleBar(
               widget.reposName,
               rightWidget: widgetContent,
             ),
@@ -352,8 +352,8 @@ class _RepositoryDetailPageState extends State<RepositoryDetailPage>
                 FloatingActionButtonLocation.endDocked,
 
             ///底部bar，增加对悬浮按键的缺省容器处理
-            bottomBar: GSYBottomAppBar(
-                color: Color(GSYColors.white),
+            bottomBar: HGBottomAppBar(
+                color: Color(HGColors.white),
                 fabLocation: FloatingActionButtonLocation.endDocked,
                 shape: CircularNotchedRectangle(),
                 rowContents: (tarBarControl.footerButton == null)

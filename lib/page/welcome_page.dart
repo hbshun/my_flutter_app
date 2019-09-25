@@ -4,8 +4,8 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:hgbh_app/common/dao/user_dao.dart';
-import 'package:hgbh_app/common/redux/gsy_state.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/redux/state.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
 import 'package:redux/redux.dart';
 
@@ -28,7 +28,7 @@ class _WelcomePageState extends State<WelcomePage> {
     hadInit = true;
 
     ///防止多次进入
-    Store<GSYState> store = StoreProvider.of(context);
+    Store<HGState> store = StoreProvider.of(context);
     new Future.delayed(const Duration(seconds: 2, milliseconds: 500), () {
       UserDao.initUserInfo(store).then((res) {
         //TODO 先前往home
@@ -45,11 +45,11 @@ class _WelcomePageState extends State<WelcomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return StoreBuilder<GSYState>(
+    return StoreBuilder<HGState>(
       builder: (context, store) {
         double size = 200;
         return new Container(
-          color: Color(GSYColors.white),
+          color: Color(HGColors.white),
           child: Stack(
             children: <Widget>[
               new Center(

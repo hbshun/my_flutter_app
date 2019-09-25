@@ -1,6 +1,6 @@
 import 'package:hgbh_app/common/dao/user_dao.dart';
 import 'package:hgbh_app/common/model/User.dart';
-import 'package:hgbh_app/common/redux/gsy_state.dart';
+import 'package:hgbh_app/common/redux/state.dart';
 import 'package:hgbh_app/common/redux/middleware/epic.dart';
 import 'package:hgbh_app/common/redux/middleware/epic_store.dart';
 import 'package:redux/redux.dart';
@@ -32,10 +32,10 @@ class FetchUserAction {
 }
 
 
-class UserInfoMiddleware implements MiddlewareClass<GSYState> {
+class UserInfoMiddleware implements MiddlewareClass<HGState> {
 
   @override
-  void call(Store<GSYState> store, dynamic action, NextDispatcher next) {
+  void call(Store<HGState> store, dynamic action, NextDispatcher next) {
     if (action is UpdateUserAction) {
       print("*********** UserInfoMiddleware *********** ");
     }
@@ -44,9 +44,9 @@ class UserInfoMiddleware implements MiddlewareClass<GSYState> {
   }
 }
 
-class UserInfoEpic implements EpicClass<GSYState> {
+class UserInfoEpic implements EpicClass<HGState> {
   @override
-  Stream<dynamic> call(Stream<dynamic> actions, EpicStore<GSYState> store) {
+  Stream<dynamic> call(Stream<dynamic> actions, EpicStore<HGState> store) {
     return Observable(actions)
         // to UpdateUserAction actions
         .ofType(TypeToken<FetchUserAction>())

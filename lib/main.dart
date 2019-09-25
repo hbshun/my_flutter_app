@@ -5,10 +5,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hgbh_app/common/event/http_error_event.dart';
 import 'package:hgbh_app/common/event/index.dart';
-import 'package:hgbh_app/common/localization/gsy_localizations_delegate.dart';
-import 'package:hgbh_app/common/redux/gsy_state.dart';
+import 'package:hgbh_app/common/localization/localizations_delegate.dart';
+import 'package:hgbh_app/common/redux/state.dart';
 import 'package:hgbh_app/common/model/User.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/page/home_page.dart';
 import 'package:hgbh_app/page/login_page.dart';
@@ -32,16 +32,16 @@ void main() {
 }
 
 class FlutterReduxApp extends StatelessWidget {
-  /// 创建Store，引用 GSYState 中的 appReducer 实现 Reducer 方法
+  /// 创建Store，引用 HGState 中的 appReducer 实现 Reducer 方法
   /// initialState 初始化 State
-  final store = new Store<GSYState>(
+  final store = new Store<HGState>(
     appReducer,
     middleware: middleware,
 
     ///初始化数据
-    initialState: new GSYState(
+    initialState: new HGState(
         userInfo: User.empty(),
-        themeData: CommonUtils.getThemeData(GSYColors.primarySwatch),
+        themeData: CommonUtils.getThemeData(HGColors.primarySwatch),
         locale: Locale('zh', 'CH')),
   );
 
@@ -52,14 +52,14 @@ class FlutterReduxApp extends StatelessWidget {
     /// 通过 StoreProvider 应用 store
     return new StoreProvider(
       store: store,
-      child: new StoreBuilder<GSYState>(builder: (context, store) {
+      child: new StoreBuilder<HGState>(builder: (context, store) {
         return new MaterialApp(
 
             ///多语言实现代理
             localizationsDelegates: [
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
-              GSYLocalizationsDelegate.delegate,
+              HGLocalizationsDelegate.delegate,
             ],
             locale: store.state.locale,
             supportedLocales: [store.state.locale],
@@ -72,11 +72,11 @@ class FlutterReduxApp extends StatelessWidget {
               },
               HomePage.sName: (context) {
                 ///通过 Localizations.override 包裹一层，
-                return new GSYLocalizations(
+                return new HGLocalizations(
                     child: NavigatorUtils.pageContainer(new HomePage()));
               },
               LoginPage.sName: (context) {
-                return new GSYLocalizations(
+                return new HGLocalizations(
                     child: NavigatorUtils.pageContainer(new LoginPage()));
               },
             });
@@ -85,23 +85,23 @@ class FlutterReduxApp extends StatelessWidget {
   }
 }
 
-class GSYLocalizations extends StatefulWidget {
+class HGLocalizations extends StatefulWidget {
   final Widget child;
 
-  GSYLocalizations({Key key, this.child}) : super(key: key);
+  HGLocalizations({Key key, this.child}) : super(key: key);
 
   @override
-  State<GSYLocalizations> createState() {
-    return new _GSYLocalizations();
+  State<HGLocalizations> createState() {
+    return new _HGLocalizations();
   }
 }
 
-class _GSYLocalizations extends State<GSYLocalizations> {
+class _HGLocalizations extends State<HGLocalizations> {
   StreamSubscription stream;
 
   @override
   Widget build(BuildContext context) {
-    return new StoreBuilder<GSYState>(builder: (context, store) {
+    return new StoreBuilder<HGState>(builder: (context, store) {
       ///通过 StoreBuilder 和 Localizations 实现实时多语言切换
       return new Localizations.override(
         context: context,

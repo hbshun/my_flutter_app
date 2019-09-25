@@ -693,7 +693,7 @@ class ReposDao {
     if (Platform.isIOS) {
       return;
     }
-    var res = await getRepositoryReleaseDao("CarGuo", 'GSYGithubAppFlutter', 1, needHtml: false);
+    var res = await getRepositoryReleaseDao("CarGuo", 'HGGithubAppFlutter', 1, needHtml: false);
     if (res != null && res.result && res.data.length > 0) {
       Release release = res.data[0];
       String versionName = release.name;

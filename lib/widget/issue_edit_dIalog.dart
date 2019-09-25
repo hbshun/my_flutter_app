@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
-import 'package:hgbh_app/widget/gsy_input_widget.dart';
+import 'package:hgbh_app/widget/card_item.dart';
+import 'package:hgbh_app/widget/input_widget.dart';
 
 class IssueEditDialog extends StatefulWidget {
   final String dialogTitle;
@@ -34,7 +34,7 @@ class _IssueEditDialogState extends State<IssueEditDialog> {
     return (widget.needTitle)
         ? new Padding(
             padding: new EdgeInsets.all(5.0),
-            child: new GSYInputWidget(
+            child: new HGInputWidget(
               onChanged: widget.onTitleChanged,
               controller: widget.titleController,
               hintText: CommonUtils.getLocale(context).issue_edit_issue_title_tip,
@@ -91,7 +91,7 @@ class _IssueEditDialogState extends State<IssueEditDialog> {
                   FocusScope.of(context).requestFocus(new FocusNode());
                 },
                 child: new Center(
-                  child: new GSYCardItem(
+                  child: new HGCardItem(
                     margin: EdgeInsets.only(left: 50.0, right: 50.0),
                     shape: new RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),
                     child: new Padding(
@@ -103,7 +103,7 @@ class _IssueEditDialogState extends State<IssueEditDialog> {
                           new Padding(
                               padding: new EdgeInsets.only(top: 5.0, bottom: 15.0),
                               child: new Center(
-                                child: new Text(widget.dialogTitle, style: GSYConstant.normalTextBold),
+                                child: new Text(widget.dialogTitle, style: HGConstant.normalTextBold),
                               )),
 
                           ///标题输入框
@@ -114,8 +114,8 @@ class _IssueEditDialogState extends State<IssueEditDialog> {
                             height: MediaQuery.of(context).size.width * 3 / 4,
                             decoration: new BoxDecoration(
                               borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                              color: Color(GSYColors.white),
-                              border: new Border.all(color: Color(GSYColors.subTextColor), width: .3),
+                              color: Color(HGColors.white),
+                              border: new Border.all(color: Color(HGColors.subTextColor), width: .3),
                             ),
                             padding: new EdgeInsets.only(left: 20.0, top: 12.0, right: 20.0, bottom: 12.0),
                             child: new Column(
@@ -128,9 +128,9 @@ class _IssueEditDialogState extends State<IssueEditDialog> {
                                     controller: widget.valueController,
                                     decoration: new InputDecoration.collapsed(
                                       hintText: CommonUtils.getLocale(context).issue_edit_issue_title_tip,
-                                      hintStyle: GSYConstant.middleSubText,
+                                      hintStyle: HGConstant.middleSubText,
                                     ),
-                                    style: GSYConstant.middleText,
+                                    style: HGConstant.middleText,
                                   ),
                                 ),
 
@@ -149,11 +149,11 @@ class _IssueEditDialogState extends State<IssueEditDialog> {
                                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                       padding: EdgeInsets.all(4.0),
                                       constraints: const BoxConstraints(minWidth: 0.0, minHeight: 0.0),
-                                      child: new Text(CommonUtils.getLocale(context).app_cancel, style: GSYConstant.normalSubText),
+                                      child: new Text(CommonUtils.getLocale(context).app_cancel, style: HGConstant.normalSubText),
                                       onPressed: () {
                                         Navigator.pop(context);
                                       })),
-                              new Container(width: 0.3, height: 25.0, color: Color(GSYColors.subTextColor)),
+                              new Container(width: 0.3, height: 25.0, color: Color(HGColors.subTextColor)),
 
                               ///确定
                               new Expanded(
@@ -161,7 +161,7 @@ class _IssueEditDialogState extends State<IssueEditDialog> {
                                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                       padding: EdgeInsets.all(4.0),
                                       constraints: const BoxConstraints(minWidth: 0.0, minHeight: 0.0),
-                                      child: new Text(CommonUtils.getLocale(context).app_ok, style: GSYConstant.normalTextBold),
+                                      child: new Text(CommonUtils.getLocale(context).app_ok, style: HGConstant.normalTextBold),
                                       onPressed: widget.onPressed)),
                             ],
                           )
@@ -178,14 +178,14 @@ class _IssueEditDialogState extends State<IssueEditDialog> {
 }
 
 var FAST_INPUT_LIST = [
-  FastInputIconModel(GSYICons.ISSUE_EDIT_H1, "\n# "),
-  FastInputIconModel(GSYICons.ISSUE_EDIT_H2, "\n## "),
-  FastInputIconModel(GSYICons.ISSUE_EDIT_H3, "\n### "),
-  FastInputIconModel(GSYICons.ISSUE_EDIT_BOLD, "****"),
-  FastInputIconModel(GSYICons.ISSUE_EDIT_ITALIC, "__"),
-  FastInputIconModel(GSYICons.ISSUE_EDIT_QUOTE, "` `"),
-  FastInputIconModel(GSYICons.ISSUE_EDIT_CODE, " \n``` \n\n``` \n"),
-  FastInputIconModel(GSYICons.ISSUE_EDIT_LINK, "[](url)"),
+  FastInputIconModel(HGICons.ISSUE_EDIT_H1, "\n# "),
+  FastInputIconModel(HGICons.ISSUE_EDIT_H2, "\n## "),
+  FastInputIconModel(HGICons.ISSUE_EDIT_H3, "\n### "),
+  FastInputIconModel(HGICons.ISSUE_EDIT_BOLD, "****"),
+  FastInputIconModel(HGICons.ISSUE_EDIT_ITALIC, "__"),
+  FastInputIconModel(HGICons.ISSUE_EDIT_QUOTE, "` `"),
+  FastInputIconModel(HGICons.ISSUE_EDIT_CODE, " \n``` \n\n``` \n"),
+  FastInputIconModel(HGICons.ISSUE_EDIT_LINK, "[](url)"),
 ];
 
 class FastInputIconModel {

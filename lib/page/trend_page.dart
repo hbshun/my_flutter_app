@@ -6,12 +6,12 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hgbh_app/bloc/trend_bloc.dart';
 import 'package:hgbh_app/common/model/TrendingRepoModel.dart';
-import 'package:hgbh_app/common/redux/gsy_state.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/redux/state.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
-import 'package:hgbh_app/widget/pull/nested/gsy_sliver_header_delegate.dart';
+import 'package:hgbh_app/widget/card_item.dart';
+import 'package:hgbh_app/widget/pull/nested/sliver_header_delegate.dart';
 import 'package:hgbh_app/widget/pull/nested/nested_refresh.dart';
 import 'package:hgbh_app/widget/repos_item.dart';
 import 'package:redux/redux.dart';
@@ -61,11 +61,11 @@ class _TrendPageState extends State<TrendPage>
   }
 
   ///绘制头部可选item
-  _renderHeader(Store<GSYState> store, Radius radius) {
+  _renderHeader(Store<HGState> store, Radius radius) {
     if (selectTime == null && selectType == null) {
       return Container();
     }
-    return new GSYCardItem(
+    return new HGCardItem(
       color: store.state.themeData.primaryColor,
       margin: EdgeInsets.all(0.0),
       shape: new RoundedRectangleBorder(
@@ -95,7 +95,7 @@ class _TrendPageState extends State<TrendPage>
               });
             }),
             new Container(
-                height: 10.0, width: 0.5, color: Color(GSYColors.white)),
+                height: 10.0, width: 0.5, color: Color(HGColors.white)),
             _renderHeaderPopItem(selectType.name, trendType(context),
                 (TrendTypeModel result) {
               if (trendBloc.isLoading) {
@@ -126,7 +126,7 @@ class _TrendPageState extends State<TrendPage>
     return new Expanded(
       child: new PopupMenuButton<TrendTypeModel>(
         child: new Center(
-            child: new Text(data, style: GSYConstant.middleTextWhite)),
+            child: new Text(data, style: HGConstant.middleTextWhite)),
         onSelected: onSelected,
         itemBuilder: (BuildContext context) {
           return _renderHeaderPopItemChild(list);
@@ -188,13 +188,13 @@ class _TrendPageState extends State<TrendPage>
             FlatButton(
               onPressed: () {},
               child: new Image(
-                  image: new AssetImage(GSYICons.DEFAULT_USER_ICON),
+                  image: new AssetImage(HGICons.DEFAULT_USER_ICON),
                   width: 70.0,
                   height: 70.0),
             ),
             Container(
               child: Text(CommonUtils.getLocale(context).app_empty,
-                  style: GSYConstant.normalText),
+                  style: HGConstant.normalText),
             ),
           ],
         ),
@@ -205,10 +205,10 @@ class _TrendPageState extends State<TrendPage>
   @override
   Widget build(BuildContext context) {
     super.build(context); // See AutomaticKeepAliveClientMixin.
-    return new StoreBuilder<GSYState>(
+    return new StoreBuilder<HGState>(
       builder: (context, store) {
         return new Scaffold(
-          backgroundColor: Color(GSYColors.mainBackgroundColor),
+          backgroundColor: Color(HGColors.mainBackgroundColor),
 
           ///采用目前采用纯 bloc 的 rxdart(stream) + streamBuilder
           body: StreamBuilder<List<TrendingRepoModel>>(
@@ -250,7 +250,7 @@ class _TrendPageState extends State<TrendPage>
       SliverPersistentHeader(
         pinned: true,
         ///SliverPersistentHeaderDelegate 实现
-        delegate: GSYSliverHeaderDelegate(
+        delegate: HGSliverHeaderDelegate(
             maxHeight: 65,
             minHeight: 65,
             changeSize: true,

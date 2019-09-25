@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
+import 'package:hgbh_app/common/style/style.dart';
+import 'package:hgbh_app/widget/card_item.dart';
 
 typedef void SelectItemChanged<int>(int value);
 
-class GSYSelectItemWidget extends StatefulWidget
+class HGSelectItemWidget extends StatefulWidget
     implements PreferredSizeWidget {
   final List<String> itemNames;
 
@@ -18,7 +18,7 @@ class GSYSelectItemWidget extends StatefulWidget
 
   final EdgeInsets margin;
 
-  GSYSelectItemWidget(
+  HGSelectItemWidget(
     this.itemNames,
     this.selectItemChanged, {
     this.elevation = 5.0,
@@ -28,7 +28,7 @@ class GSYSelectItemWidget extends StatefulWidget
   });
 
   @override
-  _GSYSelectItemWidgetState createState() => _GSYSelectItemWidgetState();
+  _HGSelectItemWidgetState createState() => _HGSelectItemWidgetState();
 
   @override
   Size get preferredSize {
@@ -36,15 +36,15 @@ class GSYSelectItemWidget extends StatefulWidget
   }
 }
 
-class _GSYSelectItemWidgetState extends State<GSYSelectItemWidget> {
+class _HGSelectItemWidgetState extends State<HGSelectItemWidget> {
   int selectIndex = 0;
 
-  _GSYSelectItemWidgetState();
+  _HGSelectItemWidgetState();
 
   _renderItem(String name, int index) {
     var style = index == selectIndex
-        ? GSYConstant.middleTextWhite
-        : GSYConstant.middleSubLightText;
+        ? HGConstant.middleTextWhite
+        : HGConstant.middleSubLightText;
     return new Expanded(
       child: AnimatedSwitcher(
         transitionBuilder: (child, anim) {
@@ -83,7 +83,7 @@ class _GSYSelectItemWidgetState extends State<GSYSelectItemWidget> {
         list.add(new Container(
             width: 1.0,
             height: 25.0,
-            color: Color(GSYColors.subLightTextColor)));
+            color: Color(HGColors.subLightTextColor)));
       }
     }
     return list;
@@ -91,7 +91,7 @@ class _GSYSelectItemWidgetState extends State<GSYSelectItemWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return new GSYCardItem(
+    return new HGCardItem(
         elevation: widget.elevation,
         margin: widget.margin,
         color: Theme.of(context).primaryColor,

@@ -9,12 +9,12 @@ import 'package:hgbh_app/common/utils/event_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
 import 'package:hgbh_app/page/repository_detail_page.dart';
 import 'package:hgbh_app/widget/event_item.dart';
-import 'package:hgbh_app/widget/gsy_common_option_widget.dart';
-import 'package:hgbh_app/widget/pull/nested/gsy_nested_pull_load_widget.dart';
-import 'package:hgbh_app/widget/pull/nested/gsy_sliver_header_delegate.dart';
+import 'package:hgbh_app/widget/common_option_widget.dart';
+import 'package:hgbh_app/widget/pull/nested/nested_pull_load_widget.dart';
+import 'package:hgbh_app/widget/pull/nested/sliver_header_delegate.dart';
 import 'package:hgbh_app/widget/pull/nested/nested_refresh.dart';
-import 'package:hgbh_app/widget/state/gsy_list_state.dart';
-import 'package:hgbh_app/widget/gsy_select_item_widget.dart';
+import 'package:hgbh_app/widget/state/list_state.dart';
+import 'package:hgbh_app/widget/select_item_widget.dart';
 import 'package:hgbh_app/widget/repos_header_item.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -37,7 +37,7 @@ class ReposDetailInfoPage extends StatefulWidget {
 class ReposDetailInfoPageState extends State<ReposDetailInfoPage>
     with
         AutomaticKeepAliveClientMixin<ReposDetailInfoPage>,
-        GSYListState<ReposDetailInfoPage>,
+        HGListState<ReposDetailInfoPage>,
         TickerProviderStateMixin {
 
   ///滑动监听
@@ -165,7 +165,7 @@ class ReposDetailInfoPageState extends State<ReposDetailInfoPage>
     super.build(context);
     return ScopedModelDescendant<ReposDetailModel>(
       builder: (context, child, model) {
-        return GSYNestedPullLoadWidget(
+        return HGNestedPullLoadWidget(
           pullLoadWidgetControl,
           (BuildContext context, int index) => _renderEventItem(index),
           handleRefresh,
@@ -185,7 +185,7 @@ class ReposDetailInfoPageState extends State<ReposDetailInfoPage>
     return <Widget>[
       ///头部信息
       SliverPersistentHeader(
-        delegate: GSYSliverHeaderDelegate(
+        delegate: HGSliverHeaderDelegate(
           maxHeight: headerSize,
           minHeight: headerSize,
           snapConfig: FloatingHeaderSnapConfiguration(
@@ -209,7 +209,7 @@ class ReposDetailInfoPageState extends State<ReposDetailInfoPage>
       SliverPersistentHeader(
         pinned: true,
         /// SliverPersistentHeaderDelegate 的实现
-        delegate: GSYSliverHeaderDelegate(
+        delegate: HGSliverHeaderDelegate(
             maxHeight: 60,
             minHeight: 60,
             changeSize: true,
@@ -226,7 +226,7 @@ class ReposDetailInfoPageState extends State<ReposDetailInfoPage>
               return SizedBox.expand(
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 10, left: lr, right: lr),
-                  child: new GSYSelectItemWidget(
+                  child: new HGSelectItemWidget(
                     [
                       CommonUtils.getLocale(context).repos_tab_activity,
                       CommonUtils.getLocale(context).repos_tab_commits,

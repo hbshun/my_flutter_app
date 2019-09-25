@@ -4,14 +4,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/config/config.dart';
 import 'package:hgbh_app/common/dao/repos_dao.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/state/gsy_list_state.dart';
-import 'package:hgbh_app/widget/pull/gsy_pull_load_widget.dart';
-import 'package:hgbh_app/widget/gsy_search_drawer.dart';
-import 'package:hgbh_app/widget/gsy_search_input_widget.dart';
-import 'package:hgbh_app/widget/gsy_select_item_widget.dart';
+import 'package:hgbh_app/widget/state/list_state.dart';
+import 'package:hgbh_app/widget/pull/pull_load_widget.dart';
+import 'package:hgbh_app/widget/search_drawer.dart';
+import 'package:hgbh_app/widget/search_input_widget.dart';
+import 'package:hgbh_app/widget/select_item_widget.dart';
 import 'package:hgbh_app/widget/repos_item.dart';
 import 'package:hgbh_app/widget/user_item.dart';
 
@@ -23,7 +23,7 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage>
     with
         AutomaticKeepAliveClientMixin<SearchPage>,
-        GSYListState<SearchPage>,
+        HGListState<SearchPage>,
         SingleTickerProviderStateMixin {
   ///搜索仓库还是人
   int selectIndex = 0;
@@ -152,7 +152,7 @@ class _SearchPageState extends State<SearchPage>
           resizeToAvoidBottomPadding: false,
 
           ///右侧 Drawer
-          endDrawer: new GSYSearchDrawer(
+          endDrawer: new HGSearchDrawer(
             (String type) {
               ///排序类型
               this.type = type;
@@ -215,7 +215,7 @@ class _SearchPageState extends State<SearchPage>
                 this.selectIndex = selectIndex;
                 _resolveSelectIndex();
               })),
-          body: GSYPullLoadWidget(
+          body: HGPullLoadWidget(
             pullLoadWidgetControl,
             (BuildContext context, int index) => _renderItem(index),
             handleRefresh,
@@ -245,8 +245,8 @@ class SearchBottom extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        GSYSearchInputWidget(onChanged, onSubmitted, onSubmitPressed),
-        new GSYSelectItemWidget(
+        HGSearchInputWidget(onChanged, onSubmitted, onSubmitPressed),
+        new HGSelectItemWidget(
           [
             CommonUtils.getLocale(context).search_tab_repos,
             CommonUtils.getLocale(context).search_tab_user,

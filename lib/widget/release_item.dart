@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/model/Release.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
+import 'package:hgbh_app/widget/card_item.dart';
 
 
 class ReleaseItem extends StatelessWidget {
@@ -16,7 +16,7 @@ class ReleaseItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      child: new GSYCardItem(
+      child: new HGCardItem(
         child: new InkWell(
           onTap: onPressed,
           onLongPress: onLongPress,
@@ -24,8 +24,8 @@ class ReleaseItem extends StatelessWidget {
             padding: new EdgeInsets.only(left: 10.0, top: 15.0, right: 10.0, bottom: 15.0),
             child: new Row(
               children: <Widget>[
-                new Expanded(child: new Text(releaseItemViewModel.actionTitle, style: GSYConstant.smallTextBold)),
-                new Container(child: new Text(releaseItemViewModel.actionTime ?? "", style: GSYConstant.smallSubText)),
+                new Expanded(child: new Text(releaseItemViewModel.actionTitle, style: HGConstant.smallTextBold)),
+                new Container(child: new Text(releaseItemViewModel.actionTime ?? "", style: HGConstant.smallSubText)),
               ],
             ),
           ),

@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/config/config.dart';
-import 'package:hgbh_app/widget/pull/gsy_pull_load_widget.dart';
+import 'package:hgbh_app/widget/pull/pull_load_widget.dart';
 
-mixin GSYListState<T extends StatefulWidget> on State<T>, AutomaticKeepAliveClientMixin<T> {
+mixin HGListState<T extends StatefulWidget> on State<T>, AutomaticKeepAliveClientMixin<T> {
   bool isShow = false;
 
   bool isLoading = false;
@@ -17,7 +17,7 @@ mixin GSYListState<T extends StatefulWidget> on State<T>, AutomaticKeepAliveClie
 
   final List dataList = new List();
 
-  final GSYPullLoadWidgetControl pullLoadWidgetControl = new GSYPullLoadWidgetControl();
+  final HGPullLoadWidgetControl pullLoadWidgetControl = new HGPullLoadWidgetControl();
 
   final GlobalKey<RefreshIndicatorState> refreshIndicatorKey = new GlobalKey<RefreshIndicatorState>();
 

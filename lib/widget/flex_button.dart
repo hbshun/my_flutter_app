@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class GSYFlexButton extends StatelessWidget {
+class HGFlexButton extends StatelessWidget {
   final String text;
 
   final Color color;
@@ -14,7 +14,7 @@ class GSYFlexButton extends StatelessWidget {
 
   final MainAxisAlignment mainAxisAlignment;
 
-  GSYFlexButton(
+  HGFlexButton(
       {Key key,
       this.text,
       this.color,

@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:hgbh_app/common/config/config.dart';
 import 'package:hgbh_app/common/dao/repos_dao.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/html_utils.dart';
-import 'package:hgbh_app/widget/gsy_title_bar.dart';
+import 'package:hgbh_app/widget/title_bar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 
@@ -74,7 +74,7 @@ class _CodeDetailPageState extends State<CodeDetailPageWeb> {
     if (data == null) {
       return new Scaffold(
         appBar: new AppBar(
-          title: GSYTitleBar(widget.title),
+          title: HGTitleBar(widget.title),
         ),
         body: new Center(
           child: new Container(
@@ -88,7 +88,7 @@ class _CodeDetailPageState extends State<CodeDetailPageWeb> {
                 new Container(width: 10.0),
                 new Container(
                     child: new Text(CommonUtils.getLocale(context).loading_text,
-                        style: GSYConstant.middleText)),
+                        style: HGConstant.middleText)),
               ],
             ),
           ),

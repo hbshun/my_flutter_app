@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 
-class GSYCardItem extends StatelessWidget {
+class HGCardItem extends StatelessWidget {
   final Widget child;
   final EdgeInsets margin;
   final Color color;
@@ -9,7 +9,7 @@ class GSYCardItem extends StatelessWidget {
   final double elevation;
 
 
-  GSYCardItem({@required this.child, this.margin, this.color, this.shape, this.elevation = 5.0});
+  HGCardItem({@required this.child, this.margin, this.color, this.shape, this.elevation = 5.0});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class GSYCardItem extends StatelessWidget {
     Color color = this.color;
     margin ??= EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0, bottom: 10.0);
     shape ??= new RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4.0)));
-    color ??= new Color(GSYColors.cardWhite);
+    color ??= new Color(HGColors.cardWhite);
     return new Card(elevation: elevation, shape: shape, color: color, margin: margin, child: child);
   }
 }

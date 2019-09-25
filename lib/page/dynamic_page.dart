@@ -3,10 +3,10 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:hgbh_app/bloc/dynamic_bloc.dart';
 import 'package:hgbh_app/common/dao/repos_dao.dart';
 import 'package:hgbh_app/common/model/Event.dart';
-import 'package:hgbh_app/common/redux/gsy_state.dart';
+import 'package:hgbh_app/common/redux/state.dart';
 import 'package:hgbh_app/common/utils/event_utils.dart';
 import 'package:hgbh_app/widget/event_item.dart';
-import 'package:hgbh_app/widget/pull/gsy_pull_new_load_widget.dart';
+import 'package:hgbh_app/widget/pull/pull_new_load_widget.dart';
 import 'package:redux/redux.dart';
 
 class DynamicPage extends StatefulWidget {
@@ -55,7 +55,7 @@ class _DynamicPageState extends State<DynamicPage>
     );
   }
 
-  Store<GSYState> _getStore() {
+  Store<HGState> _getStore() {
     return StoreProvider.of(context);
   }
 
@@ -107,7 +107,7 @@ class _DynamicPageState extends State<DynamicPage>
   @override
   Widget build(BuildContext context) {
     super.build(context); // See AutomaticKeepAliveClientMixin.
-    return GSYPullLoadWidget(
+    return HGPullLoadWidget(
       dynamicBloc.pullLoadWidgetControl,
       (BuildContext context, int index) =>
           _renderEventItem(dynamicBloc.dataList[index]),

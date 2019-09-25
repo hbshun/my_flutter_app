@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hgbh_app/common/dao/repos_dao.dart';
 import 'package:hgbh_app/common/model/FileModel.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
 import 'package:hgbh_app/page/repository_detail_page.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
-import 'package:hgbh_app/widget/state/gsy_list_state.dart';
-import 'package:hgbh_app/widget/pull/gsy_pull_load_widget.dart';
+import 'package:hgbh_app/widget/card_item.dart';
+import 'package:hgbh_app/widget/state/list_state.dart';
+import 'package:hgbh_app/widget/pull/pull_load_widget.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 
@@ -26,7 +26,7 @@ class RepositoryDetailFileListPage extends StatefulWidget {
 }
 
 class RepositoryDetailFileListPageState extends State<RepositoryDetailFileListPage>
-    with AutomaticKeepAliveClientMixin<RepositoryDetailFileListPage>, GSYListState<RepositoryDetailFileListPage> {
+    with AutomaticKeepAliveClientMixin<RepositoryDetailFileListPage>, HGListState<RepositoryDetailFileListPage> {
 
   String path = '';
 
@@ -38,12 +38,12 @@ class RepositoryDetailFileListPageState extends State<RepositoryDetailFileListPa
   ///渲染文件item
   _renderEventItem(index) {
     FileItemViewModel fileItemViewModel = FileItemViewModel.fromMap(pullLoadWidgetControl.dataList[index]);
-    IconData iconData = (fileItemViewModel.type == "file") ? GSYICons.REPOS_ITEM_FILE : GSYICons.REPOS_ITEM_DIR;
-    Widget trailing = (fileItemViewModel.type == "file") ? null : new Icon(GSYICons.REPOS_ITEM_NEXT, size: 12.0);
-    return new GSYCardItem(
+    IconData iconData = (fileItemViewModel.type == "file") ? HGICons.REPOS_ITEM_FILE : HGICons.REPOS_ITEM_DIR;
+    Widget trailing = (fileItemViewModel.type == "file") ? null : new Icon(HGICons.REPOS_ITEM_NEXT, size: 12.0);
+    return new HGCardItem(
       margin: EdgeInsets.only(left: 10.0, top: 5.0, right: 10.0, bottom: 5.0),
       child: new ListTile(
-        title: new Text(fileItemViewModel.name, style: GSYConstant.smallSubText),
+        title: new Text(fileItemViewModel.name, style: HGConstant.smallSubText),
         leading: new Icon(
           iconData,
           size: 16.0,
@@ -69,7 +69,7 @@ class RepositoryDetailFileListPageState extends State<RepositoryDetailFileListPa
             onPressed: () {
               _resolveHeaderClick(index);
             },
-            child: new Text(headerList[index] + " > ", style: GSYConstant.smallText),
+            child: new Text(headerList[index] + " > ", style: HGConstant.smallText),
           );
         },
         itemCount: headerList.length,
@@ -172,10 +172,10 @@ class RepositoryDetailFileListPageState extends State<RepositoryDetailFileListPa
   Widget build(BuildContext context) {
     super.build(context); // See AutomaticKeepAliveClientMixin.
     return new Scaffold(
-      backgroundColor: Color(GSYColors.mainBackgroundColor),
+      backgroundColor: Color(HGColors.mainBackgroundColor),
       appBar: new AppBar(
         flexibleSpace: _renderHeader(),
-        backgroundColor: Color(GSYColors.mainBackgroundColor),
+        backgroundColor: Color(HGColors.mainBackgroundColor),
         leading: new Container(),
         elevation: 0.0,
       ),
@@ -185,7 +185,7 @@ class RepositoryDetailFileListPageState extends State<RepositoryDetailFileListPa
         },
         child: ScopedModelDescendant<ReposDetailModel>(
           builder: (context, child, model) {
-            return GSYPullLoadWidget(
+            return HGPullLoadWidget(
               pullLoadWidgetControl,
               (BuildContext context, int index) => _renderEventItem(index),
               handleRefresh,

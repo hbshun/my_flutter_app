@@ -1,14 +1,14 @@
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 
 class HtmlUtils {
-  static generateCode2HTml(String mdData, {String backgroundColor = GSYColors.miWhiteString, String lang = 'java', userBR = true}) {
+  static generateCode2HTml(String mdData, {String backgroundColor = HGColors.miWhiteString, String lang = 'java', userBR = true}) {
     String currentData = (mdData != null && mdData.indexOf("<code>") == -1)
         ? "<body>\n" + "<pre class=\"pre\">\n" + "<code lang='$lang'>\n" + mdData + "</code>\n" + "</pre>\n" + "</body>\n"
         : "<body>\n" + "<pre class=\"pre\">\n" + mdData + "</pre>\n" + "</body>\n";
     return generateHtml(currentData, backgroundColor: backgroundColor, userBR: userBR);
   }
 
-  static generateHtml(String mdData, {String backgroundColor = GSYColors.webDraculaBackgroundColorString, userBR = true}) {
+  static generateHtml(String mdData, {String backgroundColor = HGColors.webDraculaBackgroundColorString, userBR = true}) {
     if (mdData == null) {
       return "";
     }
@@ -65,13 +65,13 @@ class HtmlUtils {
       print(e);
     }
 
-    return generateCodeHtml(mdDataCode, false, backgroundColor: backgroundColor, actionColor: GSYColors.actionBlueString, userBR: userBR);
+    return generateCodeHtml(mdDataCode, false, backgroundColor: backgroundColor, actionColor: HGColors.actionBlueString, userBR: userBR);
   }
 
   /**
    * style for mdHTml
    */
-  static generateCodeHtml(mdHTML, wrap, {backgroundColor = GSYColors.white, String actionColor = GSYColors.actionBlueString, userBR = true}) {
+  static generateCodeHtml(mdHTML, wrap, {backgroundColor = HGColors.white, String actionColor = HGColors.actionBlueString, userBR = true}) {
     return "<html>\n" +
         "<head>\n" +
         "<meta charset=\"utf-8\" />\n" +
@@ -99,7 +99,7 @@ class HtmlUtils {
         "}" +
         "thead, tr {" +
         "background:" +
-        GSYColors.miWhiteString +
+        HGColors.miWhiteString +
         ";}" +
         "td, th {" +
         "padding: 5px 10px;" +
@@ -107,31 +107,31 @@ class HtmlUtils {
         "direction:hor" +
         "}" +
         ".highlight {overflow: scroll; background: " +
-        GSYColors.miWhiteString +
+        HGColors.miWhiteString +
         "}" +
         "tr:nth-child(even) {" +
         "background:" +
-        GSYColors.primaryLightValueString +
+        HGColors.primaryLightValueString +
         ";" +
         "color:" +
-        GSYColors.miWhiteString +
+        HGColors.miWhiteString +
         ";" +
         "}" +
         "tr:nth-child(odd) {" +
         "background: " +
-        GSYColors.miWhiteString +
+        HGColors.miWhiteString +
         ";" +
         "color:" +
-        GSYColors.primaryLightValueString +
+        HGColors.primaryLightValueString +
         ";" +
         "}" +
         "th {" +
         "font-size: 14px;" +
         "color:" +
-        GSYColors.miWhiteString +
+        HGColors.miWhiteString +
         ";" +
         "background:" +
-        GSYColors.primaryLightValueString +
+        HGColors.primaryLightValueString +
         ";" +
         "}" +
         "</style>" +
@@ -232,9 +232,9 @@ class HtmlUtils {
         lang = defaultLang;
       }
       if ('markdown' == lang) {
-        return generateHtml(res.data, backgroundColor: GSYColors.miWhiteString);
+        return generateHtml(res.data, backgroundColor: HGColors.miWhiteString);
       } else {
-        return generateCode2HTml(res.data, backgroundColor: GSYColors.webDraculaBackgroundColorString, lang: lang);
+        return generateCode2HTml(res.data, backgroundColor: HGColors.webDraculaBackgroundColorString, lang: lang);
       }
     } else {
       return "<h1>" + "Not Support" + "</h1>";

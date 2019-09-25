@@ -4,12 +4,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/dao/repos_dao.dart';
 import 'package:hgbh_app/common/model/PushCommit.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/navigator_utils.dart';
-import 'package:hgbh_app/widget/gsy_common_option_widget.dart';
-import 'package:hgbh_app/widget/state/gsy_list_state.dart';
-import 'package:hgbh_app/widget/pull/gsy_pull_load_widget.dart';
-import 'package:hgbh_app/widget/gsy_title_bar.dart';
+import 'package:hgbh_app/widget/common_option_widget.dart';
+import 'package:hgbh_app/widget/state/list_state.dart';
+import 'package:hgbh_app/widget/pull/pull_load_widget.dart';
+import 'package:hgbh_app/widget/title_bar.dart';
 import 'package:hgbh_app/widget/push_coed_item.dart';
 import 'package:hgbh_app/widget/push_header.dart';
 import 'package:hgbh_app/common/utils/html_utils.dart';
@@ -30,7 +30,7 @@ class PushDetailPage extends StatefulWidget {
   _PushDetailPageState createState() => _PushDetailPageState();
 }
 
-class _PushDetailPageState extends State<PushDetailPage> with AutomaticKeepAliveClientMixin<PushDetailPage>, GSYListState<PushDetailPage> {
+class _PushDetailPageState extends State<PushDetailPage> with AutomaticKeepAliveClientMixin<PushDetailPage>, HGListState<PushDetailPage> {
 
   ///提价信息页面的头部数据实体
   PushHeaderViewModel pushHeaderViewModel = new PushHeaderViewModel();
@@ -73,7 +73,7 @@ class _PushDetailPageState extends State<PushDetailPage> with AutomaticKeepAlive
     PushCodeItemViewModel itemViewModel = PushCodeItemViewModel.fromMap(pullLoadWidgetControl.dataList[index - 1]);
     return new PushCodeItem(itemViewModel, () {
       String html = HtmlUtils.generateCode2HTml(HtmlUtils.parseDiffSource(itemViewModel.patch, false),
-          backgroundColor: GSYColors.webDraculaBackgroundColorString, lang: '', userBR: false);
+          backgroundColor: HGColors.webDraculaBackgroundColorString, lang: '', userBR: false);
       NavigatorUtils.gotoCodeDetailPlatform(
         context,
         title: itemViewModel.name,
@@ -110,20 +110,20 @@ class _PushDetailPageState extends State<PushDetailPage> with AutomaticKeepAlive
   @override
   Widget build(BuildContext context) {
     super.build(context); // See AutomaticKeepAliveClientMixin.
-    Widget widgetContent = (widget.needHomeIcon) ? null : new GSYCommonOptionWidget(titleOptionControl);
+    Widget widgetContent = (widget.needHomeIcon) ? null : new HGCommonOptionWidget(titleOptionControl);
     return new Scaffold(
       appBar: new AppBar(
-        title: GSYTitleBar(
+        title: HGTitleBar(
           widget.reposName,
           rightWidget: widgetContent,
           needRightLocalIcon: widget.needHomeIcon,
-          iconData: GSYICons.HOME,
+          iconData: HGICons.HOME,
           onPressed: () {
             NavigatorUtils.goReposDetail(context, widget.userName, widget.reposName);
           },
         ),
       ),
-      body: GSYPullLoadWidget(
+      body: HGPullLoadWidget(
         pullLoadWidgetControl,
         (BuildContext context, int index) => _renderEventItem(index),
         handleRefresh,

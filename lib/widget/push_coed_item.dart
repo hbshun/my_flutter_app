@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hgbh_app/common/model/CommitFile.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
-import 'package:hgbh_app/widget/gsy_card_item.dart';
+import 'package:hgbh_app/common/style/style.dart';
+import 'package:hgbh_app/widget/card_item.dart';
 
 
 class PushCodeItem extends StatelessWidget {
@@ -18,16 +18,16 @@ class PushCodeItem extends StatelessWidget {
         margin: EdgeInsets.only(left: 10.0, top: 5.0, right: 10.0, bottom: 0.0),
         child: new Text(
           pushCodeItemViewModel.path,
-          style: GSYConstant.smallSubLightText,
+          style: HGConstant.smallSubLightText,
         ),
       ),
-      new GSYCardItem(
+      new HGCardItem(
         ///修改文件名
         margin: EdgeInsets.only(left: 10.0, top: 5.0, right: 10.0, bottom: 5.0),
         child: new ListTile(
-          title: new Text(pushCodeItemViewModel.name, style: GSYConstant.smallSubText),
+          title: new Text(pushCodeItemViewModel.name, style: HGConstant.smallSubText),
           leading: new Icon(
-            GSYICons.REPOS_ITEM_FILE,
+            HGICons.REPOS_ITEM_FILE,
             size: 15.0,
           ),
           onTap: () {

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:hgbh_app/common/style/gsy_style.dart';
+import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/widget/network_cache_image.dart';
 
-class GSYUserIconWidget extends StatelessWidget {
+class HGUserIconWidget extends StatelessWidget {
   final String image;
   final VoidCallback onPressed;
   final double width;
   final double height;
   final EdgeInsetsGeometry padding;
 
-  GSYUserIconWidget({this.image, this.onPressed, this.width = 30.0, this.height = 30.0, this.padding});
+  HGUserIconWidget({this.image, this.onPressed, this.width = 30.0, this.height = 30.0, this.padding});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class GSYUserIconWidget extends StatelessWidget {
         child: new ClipOval(
           child: FadeInImage(
             placeholder: AssetImage(
-              GSYICons.DEFAULT_USER_ICON,
+              HGICons.DEFAULT_USER_ICON,
             ),
             image: NetworkCacheImage(image),
             //预览图
