@@ -92,9 +92,14 @@ abstract class HGStringBase {
   String load_more_text;
 
   String home_dynamic;
-
   String home_trend;
   String home_my;
+
+  String tabbar_index;
+  String tabbar_category;
+  String tabbar_brand;
+  String tabbar_shopcart;
+  String tabbar_my;
 
   String trend_day;
 

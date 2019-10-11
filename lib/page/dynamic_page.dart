@@ -16,7 +16,7 @@ class DynamicPage extends StatefulWidget {
 
 class _DynamicPageState extends State<DynamicPage>
     with AutomaticKeepAliveClientMixin<DynamicPage>, WidgetsBindingObserver {
-  final DynamicBloc dynamicBloc = new DynamicBloc();
+  final dynamicBloc = new DynamicBloc();
 
   ///控制列表滚动和监听
   final ScrollController scrollController = new ScrollController();

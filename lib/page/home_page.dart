@@ -46,9 +46,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> tabs = [
-      _renderTab(HGIcons.zhudaohang_xianshanggouwu, CommonUtils.getLocale(context).home_dynamic),
-      _renderTab(HGIcons.zhudaohang_fenlei, CommonUtils.getLocale(context).home_trend),
-      _renderTab(HGIcons.zhudaohang_pinpai, CommonUtils.getLocale(context).home_my),
+      _renderTab(HGIcons.zhudaohang_xianshanggouwu, CommonUtils.getLocale(context).tabbar_index),
+      _renderTab(HGIcons.zhudaohang_fenlei, CommonUtils.getLocale(context).tabbar_category),
+      _renderTab(HGIcons.zhudaohang_pinpai, CommonUtils.getLocale(context).tabbar_brand),
+      _renderTab(HGIcons.zhudaohang_gouwuche, CommonUtils.getLocale(context).tabbar_shopcart),
+      _renderTab(HGIcons.zhudaohang_huiyuanzhongxin, CommonUtils.getLocale(context).tabbar_my),
     ];
     ///增加返回按键监听
     return WillPopScope(
@@ -60,6 +62,8 @@ class HomePage extends StatelessWidget {
         type: HGTabBarWidget.BOTTOM_TAB,
         tabItems: tabs,
         tabViews: [
+          new DynamicPage(),
+          new DynamicPage(),
           new DynamicPage(),
           new TrendPage(),
           new MyPage(),

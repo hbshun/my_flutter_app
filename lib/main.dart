@@ -31,6 +31,7 @@ void main() {
   });
 }
 
+// 继承无状态组件，使用第三方redux的状态管理，而不是组件自身的状态
 class FlutterReduxApp extends StatelessWidget {
   /// 创建Store，引用 HGState 中的 appReducer 实现 Reducer 方法
   /// initialState 初始化 State

@@ -5,7 +5,7 @@ class HGStringZh extends HGStringBase {
   String welcomeMessage = "Welcome To Flutter";
 
   @override
-  String app_name = "Huanguangbaihuo";
+  String app_name = "汉光百货";
 
   @override
   String app_ok = "确定";
@@ -121,6 +121,17 @@ class HGStringZh extends HGStringBase {
   String home_trend = "趋势";
   @override
   String home_my = "我的";
+
+  @override
+  String tabbar_index = "首页";
+  @override
+  String tabbar_category = "分类";
+  @override
+  String tabbar_brand = "品牌";
+  @override
+  String tabbar_shopcart = "购物车";
+  @override
+  String tabbar_my = "我的"; //TODO 字数太多无法展示
 
   @override
   String trend_day = '今日';
