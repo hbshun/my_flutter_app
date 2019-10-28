@@ -30,3 +30,14 @@
 * 运行程序
   * 命令行：flutter run -d [设备ID]
   * VSCode，Android Studio：启动
+
+
+## 适配设备
+
+### 屏幕大小
+
+* 目前适配分辨率 720 * 1280
+
+### 系统版本
+
+* Android 4.1  4.2 闪退，4.3.1+ is OK

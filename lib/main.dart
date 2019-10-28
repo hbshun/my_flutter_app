@@ -10,7 +10,7 @@ import 'package:hgbh_app/common/redux/state.dart';
 import 'package:hgbh_app/common/model/User.dart';
 import 'package:hgbh_app/common/style/style.dart';
 import 'package:hgbh_app/common/utils/common_utils.dart';
-import 'package:hgbh_app/page/home_page.dart';
+import 'package:hgbh_app/main_pages.dart';
 import 'package:hgbh_app/page/login_page.dart';
 import 'package:hgbh_app/page/welcome_page.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -40,7 +40,7 @@ class FlutterReduxApp extends StatelessWidget {
     middleware: middleware,
 
     ///初始化数据
-    initialState: new HGState(
+    initialState: HGState(
         userInfo: User.empty(),
         themeData: CommonUtils.getThemeData(HGColors.primarySwatch),
         locale: Locale('zh', 'CH')),
@@ -51,12 +51,12 @@ class FlutterReduxApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// 通过 StoreProvider 应用 store
-    return new StoreProvider(
+    return StoreProvider(
       store: store,
-      child: new StoreBuilder<HGState>(builder: (context, store) {
-        return new MaterialApp(
+      child: StoreBuilder<HGState>(builder: (context, store) {
+        return MaterialApp(
 
-            ///多语言实现代理
+            // 多语言实现代理
             localizationsDelegates: [
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
@@ -71,13 +71,13 @@ class FlutterReduxApp extends StatelessWidget {
                     WidgetsBinding.instance.window.locale;
                 return WelcomePage();
               },
-              HomePage.sName: (context) {
+              MainPages.sName: (context) {
                 ///通过 Localizations.override 包裹一层，
-                return new HGLocalizations(
-                    child: NavigatorUtils.pageContainer(new HomePage()));
+                return HGLocalizations(
+                    child: NavigatorUtils.pageContainer(new MainPages()));
               },
               LoginPage.sName: (context) {
-                return new HGLocalizations(
+                return HGLocalizations(
                     child: NavigatorUtils.pageContainer(new LoginPage()));
               },
             });

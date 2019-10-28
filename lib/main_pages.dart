@@ -14,9 +14,11 @@ import 'package:hgbh_app/widget/tabbar_widget.dart';
 import 'package:hgbh_app/widget/title_bar.dart';
 import 'package:hgbh_app/widget/home_drawer.dart';
 
-import '../assets/icons.dart';
+import 'package:hgbh_app/pages/category_page/page.dart';
 
-class HomePage extends StatelessWidget {
+import 'assets/icons.dart';
+
+class MainPages extends StatelessWidget {
   static final String sName = "home";
 
   /// 不退出
@@ -37,7 +39,7 @@ class HomePage extends StatelessWidget {
     return new Tab(
       child: new Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[new Icon(icon, size: 16.0), new Text(text)],
+        children: <Widget>[new Icon(icon, size: 16.0), new Text(text, style: TextStyle(fontSize: 12) )],
       ),
     );
   }
@@ -63,7 +65,7 @@ class HomePage extends StatelessWidget {
         tabItems: tabs,
         tabViews: [
           new DynamicPage(),
-          new DynamicPage(),
+          new CategoryPage(),
           new DynamicPage(),
           new TrendPage(),
           new MyPage(),

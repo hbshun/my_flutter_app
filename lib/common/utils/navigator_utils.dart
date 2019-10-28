@@ -6,7 +6,7 @@ import 'package:hgbh_app/common/router/anima_route.dart';
 import 'package:hgbh_app/page/code_detail_page_web.dart';
 import 'package:hgbh_app/page/common_list_page.dart';
 import 'package:hgbh_app/page/webview.dart';
-import 'package:hgbh_app/page/home_page.dart';
+import 'package:hgbh_app/main_pages.dart';
 import 'package:hgbh_app/page/honor_list_page.dart';
 import 'package:hgbh_app/page/issue_detail_page.dart';
 import 'package:hgbh_app/page/login_page.dart';
@@ -32,7 +32,7 @@ class NavigatorUtils {
 
   ///主页
   static goHome(BuildContext context) {
-    Navigator.pushReplacementNamed(context, HomePage.sName);
+    Navigator.pushReplacementNamed(context, MainPages.sName);
   }
 
   ///登录页
